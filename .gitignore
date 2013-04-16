@@ -1,0 +1,10 @@
+app/cache
+app/log
+.build
+.settings
+.buildpath
+.project
+LICENSE
+README.*
+UPGRADE*
+app/logs/dev.log

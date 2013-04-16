@@ -1,0 +1,3 @@
+install FOS/Menu
+start trans
+start doctrine + database schema
