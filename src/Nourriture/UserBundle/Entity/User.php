@@ -1,6 +1,8 @@
 <?php
 namespace Nourriture\UserBundle\Entity;
 
+use JMS\SecurityExtraBundle\Security\Util\String;
+
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,8 +27,22 @@ class User extends BaseUser
 	 */
 	protected $groups;
 
+	/**
+	 * @var String
+	 * @ORM\Column(type="string", length=5, nullable=true)
+	 */
+	
+	protected $locale;
+	
+	
 	public function __construct()
 	{
+		$request = $this->getRequest();
+		 
+		$locale = $request->getLocale();
+		 
+		print_r($locale);
+		die(__FILE__.__LINE__);
 		parent::__construct();
 		// your own logic
 	}

@@ -1,3 +1,7 @@
 install FOS/Menu
 start trans
 start doctrine + database schema
+
+
+supported keys for routing
+"resource", "type", "prefix", "pattern", "path", "host", "schemes", "methods", "defaults", "requirements", "options".                     

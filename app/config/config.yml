@@ -8,16 +8,19 @@ fos_user:
     user_class: Nourriture\UserBundle\Entity\User
     group:
          group_class: Nourriture\UserBundle\Entity\Group
+
+
     
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
+    translator:      { fallback: en }
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: %kernel.debug%
-    form:            ~
-    csrf_protection: ~
+  
+    form:            true
+    csrf_protection: true
     validation:      { enable_annotations: true }
     templating:
         engines: ['twig']
@@ -26,7 +29,9 @@ framework:
     trusted_proxies: ~
     session:         ~
     fragments:       ~
-
+    default_locale: en
+    
+             
 # Twig Configuration
 twig:
     debug:            %kernel.debug%
