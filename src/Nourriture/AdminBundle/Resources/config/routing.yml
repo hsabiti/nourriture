@@ -1,0 +1,19 @@
+admin_homepage:
+    pattern:  /admin
+    defaults: { _controller: AdminBundle:Admin:index }
+
+admin_dashboard:
+    pattern:  /admin/dashboard
+    defaults: { _controller: AdminBundle:Admin:dashboard }
+
+admin_products:
+    pattern:  /admin/products
+    defaults: { _controller: AdminBundle:Admin:products }
+
+admin_hello:
+    pattern:  /admin/hello
+    defaults: { _controller: AdminBundle:Admin:hello }
+
+admin_fine:
+    pattern:  /admin/fine
+    defaults: { _controller: AdminBundle:Admin:fine }

@@ -37,12 +37,12 @@ class User extends BaseUser
 	
 	public function __construct()
 	{
-		$request = $this->getRequest();
+		#$request = $this->getRequest();
 		 
-		$locale = $request->getLocale();
+		#$locale = $request->getLocale();
 		 
-		print_r($locale);
-		die(__FILE__.__LINE__);
+		#print_r($locale);
+		#die(__FILE__.__LINE__);
 		parent::__construct();
 		// your own logic
 	}
@@ -57,8 +57,24 @@ class User extends BaseUser
         return $this->id;
     }
 
-    
+    /**
+     * Get locale
+     *
+     * @return string
+     */
+    public function getLocale()
+    {
+    	return $this->locale;
+    }
 
+    /**
+     * Set locale
+     *
+     */
+    public function setLocale($locale)
+    {
+    	return $this->locale = $locale;
+    }
    
 
     /**
@@ -70,4 +86,5 @@ class User extends BaseUser
     {
         return $this->groups;
     }
+    
 }

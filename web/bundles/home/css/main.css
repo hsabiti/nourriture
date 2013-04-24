@@ -1,0 +1,33 @@
+.admin_login_screen{
+	width: 320px;
+	height:150px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.admin_login_screen legend{
+	border: solid 1px #ddd;
+	width: 60px;
+	margin-top:25px;
+	-webkit-border-radius: 6px;
+  	-moz-border-radius: 6px;
+  	border-radius: 6px;
+  	padding-left:5px;
+  	background-color: #fff;
+}
+.admin_login_errors{
+	margin-left:auto;
+	margin-right:auto;
+	min-height: 20px;
+	border: solid 0px green;
+	color: red;
+	width: 320px;
+
+}
+.admin_login_container{
+	margin-top: 100px;
+	border: solid 0px yellow;
+}
+.admin_login_screen_inner_container{
+	border: solid 0px yellow;
+	margin-top: -70px;
+}

@@ -15,4 +15,5 @@ class UserListener{
 	public function setLocalForAuthenticatedUser(){
 		die(__FILE__.__LINE__);
 	}
+	
 }

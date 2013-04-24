@@ -2,13 +2,21 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
 
+knp_menu:
+    twig:
+        template: knp_menu.html.twig
+    templating: false #enable php helper for templates
+    default_renderer: twig #the renderer to use    
+
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Nourriture\UserBundle\Entity\User
     group:
          group_class: Nourriture\UserBundle\Entity\Group
-
+    profile:
+       form:
+          type: nourriture_user_profile
 
     
 framework:
@@ -30,6 +38,13 @@ framework:
     session:         ~
     fragments:       ~
     default_locale: en
+
+
+# Nourriture Configuration
+#ref: google + writing a dependency injection extesion configuration
+#nourriture_userbundle_app:
+#    loader_class: Nourriture\UserBundle\App
+
     
              
 # Twig Configuration

@@ -19,6 +19,8 @@ return array(
     'PhpOption\\' => $vendorDir . '/phpoption/phpoption/src',
     'Monolog' => $vendorDir . '/monolog/monolog/src',
     'Metadata\\' => $vendorDir . '/jms/metadata/src',
+    'Knp\\Menu\\' => $vendorDir . '/knplabs/knp-menu/src',
+    'Knp\\Bundle\\MenuBundle' => $vendorDir . '/knplabs/knp-menu-bundle',
     'JMS\\SecurityExtraBundle' => $vendorDir . '/jms/security-extra-bundle',
     'JMS\\DiExtraBundle' => $vendorDir . '/jms/di-extra-bundle',
     'JMS\\AopBundle' => $vendorDir . '/jms/aop-bundle',
