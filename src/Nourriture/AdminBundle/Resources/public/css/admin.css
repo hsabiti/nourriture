@@ -3,6 +3,34 @@ html{height:100%;}
 body{color:#616161;cursor:default;font-size:12px;line-height:16px;background:#b0b0b0;}
 
 
+.icon-home{
+    background: url("/bundles/admin/images/home-icon.png")  no-repeat scroll 0 100% transparent;
+  
+}
+
+.dashboard_container{
+   border: solid 1px red;
+   min-height: 500px;
+   
+}
+
+.dashboard_left,.dashboard_right{
+   float: left;
+   border: solid 1px green;
+   min-height: 400px;  
+
+}
+
+.dashboard_left{
+  width: 77%;
+}
+
+.dashboard_right{
+  width: 20%;
+  margin-left: 33px;
+}  
+
+
 div#container {
     background: url("/bundles/admin/images/container-bg.png") repeat-x scroll 0 0 #FFFFFF;
     margin: 15px;
@@ -65,14 +93,14 @@ div#signin form label {
 }
 
 div#admin-nav{clear:both;height:80px;overflow:hidden;position:relative;padding:0 0 0 15px;}
-div#admin-nav ul{height:40px;width:100%;line-height:40px;list-style:none;}
+div#admin-nav ul{height:30px;width:100%;line-height:40px;list-style:none;}
 div#admin-nav ul li{float:left;display:inline;}
 div#admin-nav ul li a{color:#fff;text-align:center;display:block;font-weight:bold;text-decoration:none;}
 div#admin-nav ul li a img{vertical-align:middle;margin:-6px 2px 0 0;}
 
 div#admin-nav ul.nav{}
-div#admin-nav ul.nav>li{width:140px;margin:0 1px 0 0;font-size:14px;}
-div#admin-nav ul.nav>li>a{text-shadow:#555 0 -1px 0;background:url(/bundles/admin/images/nav-u.png) 0 0 no-repeat;}
+div#admin-nav ul.nav > li{height:25px; width:140px;margin:0 1px 0 0;font-size:14px;}
+div#admin-nav ul.nav>li>a{text-shadow:#555 0 -1px 0;background:url(/bundles/admin/images/nav-u.png) 0 0 no-repeat scroll transparent;}
 div#admin-nav ul.nav>li>a:hover,div#admin-nav ul.nav>li>a.hover{background-position:0 -40px;}
 div#admin-nav ul.nav>li.current>a{background-position:0 -80px;}
 
@@ -84,12 +112,17 @@ div#admin-nav ul.nav>li>a {
     text-decoration: none;
 }
 
-div#admin-nav ul.subnav ul li.on a {
+
+div#admin-nav ul.nav ul li.current {
+    background: url("/bundles/admin/images/nav-l.png") no-repeat scroll 0 50% transparent;
+}
+
+div#admin-nav ul.nav li ul li a {
     background: url("/bundles/admin/images/nav-l.png") no-repeat scroll 100% 50% transparent;
     color: #FFFFFF;
 }
 
-div#admin-nav ul.nav li.current ul{display:block;}
+div#admin-nav ul.nav li.current ul{display:block;left:-25px;top:18px}
 
 div#admin-nav ul.nav ul{left:-9px;bottom:22px;padding:0 0 0 10px;display:none;position:absolute;background:#5f5f5f url(/bundles/admin/images/nav-l-bg.png) 0 0 repeat-x;}
 div#admin-nav ul.nav li.current ul{display:block;}
@@ -97,8 +130,6 @@ div#admin-nav ul.nav li.current ul{display:block;}
 div#admin-nav ul.nav li{font-size:12px;padding:0 0 0 1px;margin:0 0 0 1px;}
 div#admin-nav ul.nav li a{color:#ddd;padding:0 15px 0 0;}
 div#admin-nav ul.nav li a:hover{color:#fff;}
-div#admin-nav ul.nav li.current{background:url(/bundles/admin/images/nav-l.png) 0 50% no-repeat;}
-div#admin-nav ul.nav li.current a{ color:#fff;background:url(/bundles/admin/images/nav-l.png) 100% 50% no-repeat;}
 
 div#admin-nav ul.nav li.current ul li a{color:#fff;}
 div#admin-nav ul.nav li.current ul li { text-align:center;padding-left:2px; margin-top:8px; border:solid 0px red;}
@@ -126,7 +157,7 @@ object,embed{outline:none;}
 div#popup-container,div#popup-saver{background:#fff;width:970px;height:auto;position:fixed;}
 div#popup-saver{top:0;left:0;height:100%;z-index:10000;background:#fff url(images/loader.gif) 50% 50% no-repeat;}
 
-div#logo{float:left;height:90px;z-index:100;background:url(images/header-left.png) 0 0 no-repeat;}
+div#logo{float:left;height:96px;z-index:100;background:url(images/header-left.png) 0 0 no-repeat;}
  div#logo h1{float:left;height:88px;width:240px;background:url(images/logo.png) 10px 0 no-repeat;}
   div#logo h1 a{display:block;height:88px;width:240px;}
    div#logo h1 a span{display:none;}
@@ -196,7 +227,7 @@ div#popup-container div#content{padding:10px;}
     div#content div.fieldset div.large p.right a.button{margin:-5px 0 0 10px;}
 
   div#content div.fieldset ul.large{list-style:none;}
-   div#content div.fieldset ul.large li{height:60px;line-height:60px;background:url(images/large-li.png) 0 0 repeat-x;border-top:1px solid #c3c3c3;}
+   div#content div.fieldset ul.large li{height:60px;line-height:60px;background:url(/bundles/admin/images/large-li.png) 0 0 repeat-x;border-top:1px solid #c3c3c3;}
     div#content div.fieldset ul.large li img{margin:-4px 0 0 15px;vertical-align:middle;}
     div#content div.fieldset ul.large li a{color:#585858;margin:0 0 0 15px;font-weight:bold;font-size:18px;}
 

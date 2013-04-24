@@ -17,3 +17,11 @@ admin_hello:
 admin_fine:
     pattern:  /admin/fine
     defaults: { _controller: AdminBundle:Admin:fine }
+
+admin_users:
+    pattern:  /admin/users
+    defaults: { _controller: AdminBundle:Users:list }
+
+admin_admins:
+    pattern:  /admin/admins
+    defaults: { _controller: AdminBundle:AdminUsers:list }

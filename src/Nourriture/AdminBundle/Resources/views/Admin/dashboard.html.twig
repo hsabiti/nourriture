@@ -1,8 +1,26 @@
 {% extends '::adminhomebase.html.twig' %}
 
 
-{% block body %}
+{% block admin_content %}
 
-Hellow {{ name }}!
+<div class="dashboard_container">
+
+	<div class="dashboard_left">
+		Dashboard Left
+	</div>
+	<div class="dashboard_right">
+		<div class="fieldset">
+			<div class="legend">Quick Links</div>
+			<ul class="large">
+			{{ knp_menu_render('admin_side', {'template':'AdminBundle:Menu:knp_menu.html.twig'}) }}
+
+				place holder
+			</ul>
+		</div>
+	</div>
+
+</div>
+
+Hello Dashboard {{ name }}!
 
 {% endblock %}

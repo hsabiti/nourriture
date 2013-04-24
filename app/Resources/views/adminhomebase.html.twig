@@ -17,7 +17,9 @@
 		<div id="admin-nav">
 		  {{ knp_menu_render('admin_main', {'template':'AdminBundle:Menu:knp_menu.html.twig'}) }}
 		</div>
-		<div id="content">content</div>
+		<div id="content">
+			{% block admin_content %} {% endblock %}content goes here
+		</div>
 
 	</div>
 

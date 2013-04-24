@@ -19,6 +19,15 @@ services:
         tags:
             - { name: knp_menu.menu, alias: admin_main } # The alias is what is used to retrieve the menu
 
+    nourriture_admin.menu.side:
+        class: Knp\Menu\MenuItem # the service definition requires setting the class
+        factory_service: nourriture_admin.menu_builder
+        factory_method: createSideMenu
+        arguments: ["@request"]
+        scope: request # needed as we have the request as a dependency here
+        tags:
+            - { name: knp_menu.menu, alias: admin_side } # The alias is what is used to retrieve the menu
+
     nourriture_admin.voter.request:
         class: Nourriture\AdminBundle\Voter\RouteVoter
         arguments:
