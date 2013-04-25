@@ -33,30 +33,11 @@ class RouteVoter implements VoterInterface
     public function matchItem(ItemInterface $item)
     {
 
-	$m_url = $item->getUri();
-	$url   = $this->container->get('request')->getRequestUri();
+       if ($item->getUri() === $this->container->get('request')->getRequestUri()) {
 
-	$m_url_array =  array_filter(explode('/', $m_url));
-	$url_array =  array_filter(explode( '/', $url));
-
-	$_m_url = $m_url_array[count($m_url_array)-1];
-	$_url   = $url_array[count($url_array)-1];
-
-#	print $_m_url . " => " . $_url . "<br />";
-
-#        print_r(array_filter($url_array));
-#        die(__FILE__.__LINE__);
-
-       #if ($item->getUri() === $this->container->get('request')->getRequestUri()) {
-       if ($_m_url === $_url && $url_array[count($url_array)] === $m_url_array[count($m_url_array)] ) {
-       #if ($_m_url === $_url || $url_array[count($url_array)] === $m_url_array[count($m_url_array)] ) {
             return true;
         }
-	
-	if ($_m_url === $_url ){
-		#return true;
-	}
-	
+
         return null;
     }
 }

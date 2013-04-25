@@ -1,27 +1,35 @@
-admin_homepage:
-    pattern:  /admin
-    defaults: { _controller: AdminBundle:Admin:index }
+#admin_users_list:
+#    pattern:  /admin/users
+#    defaults: { _controller: AdminBundle:Users:list }
+#admin_homepage:
+#    pattern:  /admin
+#    defaults: { _controller: AdminBundle:Admin:index }
 
-admin_dashboard:
-    pattern:  /admin/dashboard
-    defaults: { _controller: AdminBundle:Admin:dashboard }
+admin_dashboard_list:
+    pattern:  /admin/dashboard/list
+    defaults: { _controller: AdminBundle:Admins:dashboard }
 
-admin_products:
-    pattern:  /admin/products
-    defaults: { _controller: AdminBundle:Admin:products }
+admin_products_list:
+    pattern:  /admin/products/list
+    defaults: { _controller: AdminBundle:Products:list }
 
-admin_hello:
-    pattern:  /admin/hello
-    defaults: { _controller: AdminBundle:Admin:hello }
+admin_products_add:
+    pattern:  /admin/products/add
+    defaults: { _controller: AdminBundle:Products:add }
 
-admin_fine:
-    pattern:  /admin/fine
-    defaults: { _controller: AdminBundle:Admin:fine }
-
-admin_users:
-    pattern:  /admin/users
+admin_users_list:
+    pattern:  /admin/users/list
     defaults: { _controller: AdminBundle:Users:list }
 
-admin_admins:
-    pattern:  /admin/admins
-    defaults: { _controller: AdminBundle:AdminUsers:list }
+admin_users_add:
+    pattern:  /admin/users/add
+    defaults: { _controller: AdminBundle:Users:add }
+
+
+admin_admins_list:
+    pattern:  /admin/admins/list
+    defaults: { _controller: AdminBundle:Admins:list }
+
+admin_admins_add:
+    pattern:  /admin/admins/add
+    defaults: { _controller: AdminBundle:Admins:add }

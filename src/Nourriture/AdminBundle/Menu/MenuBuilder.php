@@ -30,22 +30,23 @@ class MenuBuilder extends ContainerAware
 
 	#print_r(basename($request->getRequestUri()));die(__FILE__.__LINE__);
 
-        $menu->addChild('dashboard', array('label'=>'Dashboard','route' => 'admin_dashboard'));
-		$menu['dashboard']->addChild('dashboard', array('label'=>'Dashboard', 'route'=>'admin_hello', 'attributes'=>array('class'=>'pissoff current')));
+        $menu->addChild('dashboard', array('label'=>'Dashboard','route' => 'admin_dashboard_list'));
+		$menu['dashboard']->addChild('list', array('label'=>'List', 'route'=>'admin_dashboard_list', 'attributes'=>array('class'=>'dashboard')));
 		$menu['dashboard']->setChildrenAttributes(array('class'=>'subnav'));
 
 
-        $menu->addChild('home', array('label'=>'Home','route' => 'admin_homepage'));
-		$menu['home']->addChild('hello', array('route'=>'admin_hello', 'attributes'=>array('class'=>'pissoff current')));
-		$menu['home']->addChild('fine', array('route'=>'admin_fine', 'attributes'=>array('class'=>'pissoff current')));
 
-		$menu['home']->setChildrenAttributes(array('class'=>'subnav'));
+        $menu->addChild('products', array('label'=>'Products','route' => 'admin_products_list'));
+		$menu['products']->addChild('list', array('label'=>'List Products', 'route'=>'admin_products_list', 'attributes'=>array('class'=>'placeholder')));
+		$menu['products']->addChild('add', array('label'=>'Add New Product','route'=>'admin_products_add', 'attributes'=>array('class'=>'pissoff')));
 
+	$menu->addChild('users', array('label'=>'Users','route' => 'admin_users_list'));
+		$menu['users']->addChild('users', array('label'=>'List Users', 'route'=>'admin_users_list', 'attributes'=>array('class'=>'users')));
+		$menu['users']->addChild('add', array('label'=>'Add New User', 'route'=>'admin_users_add', 'attributes'=>array('class'=>'placeholder')));
 
-
-        $menu->addChild('products', array('label'=>'Products','route' => 'admin_products'));
-		$menu['products']->addChild('products', array('label'=>'Hello Products', 'route'=>'admin_hello', 'attributes'=>array('class'=>'pissoff current')));
-		$menu['products']->addChild('fine', array('route'=>'admin_fine', 'attributes'=>array('class'=>'pissoff current')));
+	$menu->addChild('admins', array('label'=>'Admins','route' => 'admin_admins_list'));
+		$menu['admins']->addChild('list', array('label'=>'List Admins', 'route'=>'admin_admins_list', 'attributes'=>array('class'=>'placeholder')));
+		$menu['admins']->addChild('add', array('label'=>'Add New Admin', 'route'=>'admin_admins_add', 'attributes'=>array('class'=>'placeholder')));
 
         // ... add more children
 
@@ -67,18 +68,18 @@ class MenuBuilder extends ContainerAware
 	$menu->setChildrenAttributes(array('class'=>'nav'));
 
 
-        $menu->addChild('home', array('label'=>'Home','route' => 'admin_homepage'))
-		->setAttribute('icon', '/bundles/admin/images/home-icon.png');
+#        $menu->addChild('home', array('label'=>'Home','route' => 'admin_homepage'))
+#		->setAttribute('icon', '/bundles/admin/images/home-icon.png');
 
-        $menu->addChild('products', array('label'=>'Products','route' => 'admin_products'))
+        $menu->addChild('products', array('label'=>'Products','route' => 'admin_products_list'))
 		->setAttribute('icon', '/bundles/admin/images/products-icon.png');
 
 
-        $menu->addChild('users', array('label'=>'Users','route' => 'admin_users'))
+        $menu->addChild('users', array('label'=>'Users','route' => 'admin_users_list'))
 		->setAttribute('icon', '/bundles/admin/images/users-icon.png');
 
 
-        $menu->addChild('user_admins', array('label'=>'Admins','route' => 'admin_admins'))
+        $menu->addChild('user_admins', array('label'=>'Admins','route' => 'admin_admins_list'))
 		->setAttribute('icon', '/bundles/admin/images/admins-icon.png');
 
 
