@@ -3,30 +3,32 @@ html{height:100%;}
 body{color:#616161;cursor:default;font-size:12px;line-height:16px;background:#b0b0b0;}
 
 
-.icon-home{
-    background: url("/bundles/admin/images/home-icon.png")  no-repeat scroll 0 100% transparent;
-  
+.dashboard_right .nav{
+    margin-left: -25px;
+}
+.dashboard_right .nav li a:hover{
+    background-color: transparent;
 }
 
 .dashboard_container{
-   border: solid 1px red;
+   border: solid 0px red;
    min-height: 500px;
    
 }
 
 .dashboard_left,.dashboard_right{
    float: left;
-   border: solid 1px green;
+   border: solid 0px green;
    min-height: 400px;  
 
 }
 
 .dashboard_left{
-  width: 77%;
+  width: 80%;
 }
 
 .dashboard_right{
-  width: 20%;
+  width: 17%;
   margin-left: 33px;
 }  
 
@@ -227,9 +229,9 @@ div#popup-container div#content{padding:10px;}
     div#content div.fieldset div.large p.right a.button{margin:-5px 0 0 10px;}
 
   div#content div.fieldset ul.large{list-style:none;}
-   div#content div.fieldset ul.large li{height:60px;line-height:60px;background:url(/bundles/admin/images/large-li.png) 0 0 repeat-x;border-top:1px solid #c3c3c3;}
-    div#content div.fieldset ul.large li img{margin:-4px 0 0 15px;vertical-align:middle;}
-    div#content div.fieldset ul.large li a{color:#585858;margin:0 0 0 15px;font-weight:bold;font-size:18px;}
+   div#content div.fieldset ul.large li{height:60px;width:100%;line-height:60px;background:url(/bundles/admin/images/large-li.png) 0 0 repeat-x;border-top:1px solid #c3c3c3;}
+    div#content div.fieldset ul.large li img{margin:-4px 0 0 5px;vertical-align:middle;}
+    div#content div.fieldset ul.large li a{color:#585858;margin:0 0 0 15px;font-weight:bold;font-size:18px;display:inline}
 
   div#content div.fieldset div.block{float:left;margin:15px 0 0 15px;border:1px solid #dbdbdb;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}
    div#content div.fieldset div.block div.header{color:#fff;font-size:17px;height:42px;line-height:42px;padding:0 0 0 15px;margin:0 0 5px;font-weight:normal;-moz-border-radius-topleft:5px;-webkit-border-top-left-radius:5px;border-top-left-radius:5px;-moz-border-radius-topright:5px;-webkit-border-top-right-radius:5px;border-top-right-radius:5px;}

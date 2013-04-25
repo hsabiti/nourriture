@@ -1,0 +1,4 @@
+#admin_homepage:
+#    pattern:  /admin
+#    defaults: { _controller: AdminBundle:Admin:index }
+

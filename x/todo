@@ -5,3 +5,10 @@ start doctrine + database schema
 
 supported keys for routing
 "resource", "type", "prefix", "pattern", "path", "host", "schemes", "methods", "defaults", "requirements", "options".                     
+
+
+1. enable user login auth->locale
+2. continue with admin so far, and see to it that the locale is enabled and language set is use thus far
+3. change routing for userbundle to yml format
+4. UserListing and Editing
+5. Navigation and sub navs

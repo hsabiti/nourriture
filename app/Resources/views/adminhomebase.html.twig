@@ -13,7 +13,13 @@
 	<div id="container">
 
 		<div id="logo">logo</div>
-		<div id="info">info</div>
+		
+		<div id="info">
+			<span class="user"><strong>User:</strong> {{ app.user.username }}</span>
+			<span><a href="{{ path('fos_user_security_logout') }}"><strong>Log out</strong></a></span>
+		</div>
+
+
 		<div id="admin-nav">
 		  {{ knp_menu_render('admin_main', {'template':'AdminBundle:Menu:knp_menu.html.twig'}) }}
 		</div>

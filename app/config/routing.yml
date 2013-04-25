@@ -35,7 +35,7 @@ fos_user_group:
     requirements:
        _locale: en|fr    
 #user:
-#    resource: "@UserBundle/Resources/config/routing.php"
+#    resource: "@UserBundle/Resources/config/routing.yml"
 #    prefix:   /
 
 home:

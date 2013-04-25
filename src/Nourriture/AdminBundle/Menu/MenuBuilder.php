@@ -68,13 +68,19 @@ class MenuBuilder extends ContainerAware
 
 
         $menu->addChild('home', array('label'=>'Home','route' => 'admin_homepage'))
-		->setAttribute('class', 'icon-home');
+		->setAttribute('icon', '/bundles/admin/images/home-icon.png');
 
-        $menu->addChild('products', array('label'=>'Products','route' => 'admin_products'));
+        $menu->addChild('products', array('label'=>'Products','route' => 'admin_products'))
+		->setAttribute('icon', '/bundles/admin/images/products-icon.png');
 
-        $menu->addChild('users', array('label'=>'Users','route' => 'admin_users'));
 
-        $menu->addChild('user_admins', array('label'=>'Admins','route' => 'admin_admins'));
+        $menu->addChild('users', array('label'=>'Users','route' => 'admin_users'))
+		->setAttribute('icon', '/bundles/admin/images/users-icon.png');
+
+
+        $menu->addChild('user_admins', array('label'=>'Admins','route' => 'admin_admins'))
+		->setAttribute('icon', '/bundles/admin/images/admins-icon.png');
+
 
 
         // ... add more children

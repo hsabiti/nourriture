@@ -79,7 +79,14 @@
 {% endif %}
 {% endblock %}
 
-{% block linkElement %}{% import _self as knp_menu %}<a href="{{ item.uri }}"{{ knp_menu.attributes(item.linkAttributes) }}>{{ block('label') }}</a>{% endblock %}
+{% block linkElement %}{% import _self as knp_menu %}
+{%- set icon = item.attribute('icon') is not empty ? item.attribute('icon') : '' %}
+
+{%- if icon is not empty %}
+<img src="{{ icon }}">
+{% endif %}
+<a href="{{ item.uri }}"{{ knp_menu.attributes(item.linkAttributes) }}>{{ block('label') }}</a>
+{% endblock %}
 
 {% block spanElement %}{% import _self as knp_menu %}<span{{ knp_menu.attributes(item.labelAttributes) }}>{{ block('label') }}</span>{% endblock %}
 
