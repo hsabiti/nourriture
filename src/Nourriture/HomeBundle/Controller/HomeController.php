@@ -9,10 +9,11 @@ class HomeController extends Controller
     public function indexAction($name=null)
     {
     	$request = $this->getRequest();
-
+#var_dump($request->attributes->get('_locale'));
+#die(__FILE__.__LINE__);
 	    	
     	$locale = $request->getLocale();
-	$name = $locale;
+	$name = 'request_locale : ' .  $locale . ' session_locale ' . $request->get('_locale') . ' request_attributes locale ' . $request->attributes->get('_locale');
 
 	#var_dump($request->getSession()->get('_locale'));
     	#print_r($request);

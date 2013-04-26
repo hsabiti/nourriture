@@ -4,18 +4,26 @@ namespace Nourriture\UserBundle\EventListener;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent,
 	Symfony\Component\HttpKernel\Event\GetResponseEvent,
 	Symfony\Component\HttpKernel\HttpKernelInterface,
-	Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+	Symfony\Component\Routing\Generator\UrlGeneratorInterface,
+	Symfony\Component\Security\Core\SecurityContext;
 
 class UserListener{
 	
 	private $router;
-	private $user;
+	private $context;
 	
-	public function __construct(UrlGeneratorInterface $router, $user){
+	public function __construct(UrlGeneratorInterface $router, SecurityContext $context){
 		$this->router  = $router;
-		$this->user    = $user;
+		$this->context = $context;
 		#var_dump($this->user->getToken());
 		#die(__FILE__.__LINE__);
+	}
+	
+	public function getuser(){
+		return $this->context->getToken()->getUser();
+	}
+	public function onSecurityInteractiveLogin(InteractiveLoginEvent $event){
+		die(__FILE__.__LINE__);
 	}
 	public function _setLocalForAuthenticatedUser(){
 		die(__FILE__.__LINE__);
@@ -45,6 +53,32 @@ class UserListener{
 		die(__FILE__.__LINE__);
 		  $request->setLocale($request->getPreferredLanguage());
 		}
+	}
+
+	public function setLocaleForUser(GetResponseEvent $event){
+
+	   if(HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType()) {
+
+			return;
+	   }
+	   if($event->getRequest()->getRequestFormat() !='html'){
+	   	 return;
+	   }
+		$user = $this->getUser();
+#var_dump($user);
+#var_dump($event->getRequest()->getSession());
+if(is_object($user) && $user->getLocale() !=null){
+$event->getRequest()->setLocale($user->getLocale());
+$event->getRequest()->getSession()->set('_locale', $user->getLocale());
+$event->getRequest()->attributes->set('_locale', $user->getLocale());
+		#var_dump($event->getRequest()->getSession()->get('_locale'));
+		#die(__FILE__.__LINE__);
+}else{
+	if ('undefined' == $event->getRequest()->getLocale()) {
+		$event->getRequest()->setLocale($request->getPreferredLanguage());
+	}
+}
+		
 	}
 
 		/**

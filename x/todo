@@ -7,6 +7,7 @@ supported keys for routing
 "resource", "type", "prefix", "pattern", "path", "host", "schemes", "methods", "defaults", "requirements", "options".                     
 
 
+0. upgrade to symfony 2.3 [bug that fails to redirect url, and always generate default_locale based urls] https://github.com/symfony/symfony/issues/7063
 1. enable user login auth->locale
 2. continue with admin so far, and see to it that the locale is enabled and language set is use thus far
 3. change routing for userbundle to yml format
