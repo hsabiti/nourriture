@@ -1,0 +1,3 @@
+Nourritre\UserBundle\Entity\User:
+    type: entity
+    repositoryClass: Nourriture\UserBundle\Entity\UserRepository
