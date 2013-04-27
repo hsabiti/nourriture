@@ -1,5 +1,4 @@
 app/cache
-app/log
 .build
 .settings
 .buildpath
@@ -7,4 +6,16 @@ app/log
 LICENSE
 README.*
 UPGRADE*
-app/logs/dev.log
+# Bootstrap
+app/bootstrap*
+
+# Symfony directories
+vendor/*
+*/logs/*
+*/cache/*
+web/uploads/*
+web/bundles/*
+
+# Configuration files
+app/config/parameters.ini
+app/config/parameters.yml
