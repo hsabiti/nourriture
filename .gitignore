@@ -5,6 +5,8 @@
 LICENSE
 README.*
 UPGRADE*
+x/
+
 
 # Symfony directories
 vendor/*
