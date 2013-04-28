@@ -12,6 +12,9 @@ dashboard:
      list_admins: Liste Des Administrateurs
      add_admin: Ajouter Un Administrateur
 
+users:
+    edit_profile: Modification d'un profil de l'utilisateur
+    delete_profile: Supprimer le profil de l'utilisateur
 
 
 # Group

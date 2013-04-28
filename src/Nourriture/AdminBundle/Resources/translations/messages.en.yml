@@ -11,6 +11,11 @@ dashboard:
      list_admins: Lists Admins
      add_admin: Add Admin
 
+users:
+    edit_profile: Editing User Profile
+    delete_profile: Deleting User Profile
+
+
 
 # Group
 group:

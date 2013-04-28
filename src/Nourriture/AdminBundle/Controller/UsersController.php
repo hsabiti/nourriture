@@ -3,6 +3,8 @@
 namespace Nourriture\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Nourriture\UserBundle\Form\Type\ProfileFormType, 
+        Nourriture\UserBundle\Entity\User;
 
 class UsersController extends Controller
 {
@@ -18,10 +20,30 @@ class UsersController extends Controller
         return $this->render('AdminBundle:Users:users_list.html.twig', array('users' => $users));
     }
 
-    public function editAction()
+    public function editAction($id)
     {
 
-        return $this->render('AdminBundle:Users:edit.html.twig');
+		/*$user = $this->getDoctrine()
+			->getRepository('UserBundle:User')
+			->findById($id);*/
+		#$form = $this->container->get('nourriture.profile.form.type');
+
+
+                #$request = $this->getRequest();
+                #$form->bindRequest($request);
+
+                #if($request->getMethod()=='POST'){
+		#	if($form->isValid()){
+		#	}			
+		#}
+
+        return $this->render('AdminBundle:Users:users_edit.html.twig');
+
+    }
+    
+    public function deleteAction(){
+
+	return $this->render('AdminBundle:Users:users_delete.html.twig');
 
     }
 
