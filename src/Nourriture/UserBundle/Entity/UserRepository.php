@@ -27,6 +27,7 @@ class UserRepository extends EntityRepository
 			->orWhere('g.roles LIKE :role')
 			->setParameter('role', "%$role%")
 			->orderBy('u.username','ASC')
+			->groupBy('u')
 			->getQuery()
 			->getResult();
 

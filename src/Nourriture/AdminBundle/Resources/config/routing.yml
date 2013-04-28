@@ -21,6 +21,18 @@ admin_users_list:
     pattern:  /admin/users/list
     defaults: { _controller: AdminBundle:Users:list }
 
+admin_users_edit:
+    pattern:  /admin/users/edit/{id}
+    defaults: { _controller: AdminBundle:Users:edit }
+    requirements: 
+              id: \d+
+
+admin_users_delete:
+    pattern:  /admin/users/delete/{id}
+    defaults: { _controller: AdminBundle:Users:delete }
+    requirements: 
+              id: \d+
+
 admin_users_add:
     pattern:  /admin/users/add
     defaults: { _controller: AdminBundle:Users:add }
