@@ -1,13 +1,13 @@
 <?php
 namespace Nourriture\UserBundle\Entity;
 
-use JMS\SecurityExtraBundle\Security\Util\String;
-
-use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\GroupInterface;
+use JMS\SecurityExtraBundle\Security\Util\String;
+use FOS\UserBundle\Entity\User as BaseUser;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Nourriture\UserBundle\Entity\UserRepository")
  * @ORM\Table(name="fos_user")
  */
 class User extends BaseUser
@@ -87,4 +87,16 @@ class User extends BaseUser
         return $this->groups;
     }
     
+    public function addGroup(GroupInterface $group)
+    {
+    	if($this->getGroups() ==null){
+    		$this->groups[] = $group;
+    	}elseif (!$this->getGroups()->contains($group)) {
+    		$this->getGroups()->add($group);
+    	}
+    
+    	return $this;
+    }
+
+
 }

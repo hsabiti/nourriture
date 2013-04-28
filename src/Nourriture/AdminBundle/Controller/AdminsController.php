@@ -8,8 +8,14 @@ class AdminsController extends Controller
 {
     public function listAction()
     {
-	$users = array('name'=>'Dummy Users place holder ' .__FILE__.__LINE__  );
-        return $this->render('AdminBundle:Admins:list.html.twig', array('users' => $users));
+	
+	$admins = $this->getDoctrine()
+    			->getRepository('UserBundle:User')
+			->findByRole('ROLE_ADMIN');
+	
+	#var_dump($admins);
+	#die(__FILE__.__LINE__);
+        return $this->render('AdminBundle:Admins:admins_list.html.twig', array('admins' => $admins));
     }
 
     public function addAction()

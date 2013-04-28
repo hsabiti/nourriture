@@ -17,6 +17,9 @@ fos_user:
     profile:
        form:
           type: nourriture_user_profile
+    registration:
+        form:
+            type: nourriture_user_registration
 
     
 framework:

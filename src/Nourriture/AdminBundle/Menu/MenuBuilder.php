@@ -64,7 +64,7 @@ class MenuBuilder extends ContainerAware
         return $menu;
     }
 
-    public function createSideMenu(Request $request)
+    public function createDashboardMenu(Request $request)
     {
 
         $menu = $this->factory->createItem('root');
@@ -73,8 +73,43 @@ class MenuBuilder extends ContainerAware
 	$menu->setChildrenAttributes(array('class'=>'nav'));
 
 
-#        $menu->addChild('home', array('label'=>'Home','route' => 'admin_homepage'))
-#		->setAttribute('icon', '/bundles/admin/images/home-icon.png');
+       # $menu->addChild('home', array('label'=>'Home','route' => 'admin_dashboard_list'))
+       #	->setAttribute('icon', '/bundles/admin/images/home-icon.png');
+
+        $menu->addChild('products', array('label'=>'Products','route' => 'admin_products_list'))
+		->setAttribute('icon', '/bundles/admin/images/products-icon.png');
+
+
+        $menu->addChild('users', array('label'=>'Users','route' => 'admin_users_list'))
+		->setAttribute('icon', '/bundles/admin/images/users-icon.png');
+
+
+        $menu->addChild('user_admins', array('label'=>'Admins','route' => 'admin_admins_list'))
+		->setAttribute('icon', '/bundles/admin/images/admins-icon.png');
+
+
+
+        // ... add more children
+
+	foreach($menu as $key=>$item){
+		$item->setExtra('routes', array('routes'=>$key));
+	}
+	
+        return $menu;
+    }
+
+
+    public function createAdminsMenu(Request $request)
+    {
+
+        $menu = $this->factory->createItem('root');
+	
+	
+	$menu->setChildrenAttributes(array('class'=>'nav'));
+
+
+        $menu->addChild('home', array('label'=>'Home','route' => 'admin_dashboard_list'))
+		->setAttribute('icon', '/bundles/admin/images/home-icon.png');
 
         $menu->addChild('products', array('label'=>'Products','route' => 'admin_products_list'))
 		->setAttribute('icon', '/bundles/admin/images/products-icon.png');
