@@ -13,8 +13,6 @@ class AdminsController extends Controller
     			->getRepository('UserBundle:User')
 			->findByRole('ROLE_ADMIN');
 	
-	#var_dump($admins);
-	#die(__FILE__.__LINE__);
         return $this->render('AdminBundle:Admins:admins_list.html.twig', array('admins' => $admins));
     }
 
