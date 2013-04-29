@@ -28,6 +28,20 @@ class User extends BaseUser
 	protected $groups;
 
 	/**
+	 * @ORM\ManyToOne(targetEntity="Nourriture\UserBundle\Entity\Profile")
+	 *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+	 *      inversedJoinColumns={@ORM\JoinColumn(name="profile_id", referencedColumnName="id")}
+	 */
+	protected $profile;
+
+	/**
+	 * @ORM\ManyToOne(targetEntity="Nourriture\UserBundle\Entity\Address")
+	 *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+	 *      inversedJoinColumns={@ORM\JoinColumn(name="address_id", referencedColumnName="id")}
+	 */
+	protected $address;
+
+	/**
 	 * @var String
 	 * @ORM\Column(type="string", length=5, nullable=true)
 	 */

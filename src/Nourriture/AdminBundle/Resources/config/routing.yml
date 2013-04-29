@@ -45,3 +45,11 @@ admin_admins_list:
 admin_admins_add:
     pattern:  /admin/admins/add
     defaults: { _controller: AdminBundle:Admins:add }
+
+admin_groups_list:
+    pattern:  /admin/groups/list
+    defaults: { _controller: AdminBundle:Groups:list }
+
+admin_groups_add:
+    pattern:  /admin/groups/add
+    defaults: { _controller: AdminBundle:Groups:add }

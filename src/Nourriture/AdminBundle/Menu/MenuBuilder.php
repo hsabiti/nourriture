@@ -53,6 +53,10 @@ class MenuBuilder extends ContainerAware
 		$menu['admins']->addChild('list', array('label'=>$t->trans('dashboard.list_admins'), 'route'=>'admin_admins_list', 'attributes'=>array('class'=>'placeholder')));
 		$menu['admins']->addChild('add', array('label'=>$t->trans('dashboard.add_admin'), 'route'=>'admin_admins_add', 'attributes'=>array('class'=>'placeholder')));
 
+	$menu->addChild('groups', array('label'=>$t->trans('dashboard.groups'),'route' => 'admin_groups_list'));
+		$menu['groups']->addChild('list', array('label'=>$t->trans('dashboard.list_groups'), 'route'=>'admin_groups_list', 'attributes'=>array('class'=>'placeholder')));
+		$menu['groups']->addChild('add', array('label'=>$t->trans('dashboard.add_group'), 'route'=>'admin_groups_add', 'attributes'=>array('class'=>'placeholder')));
+
         // ... add more children
 
 	foreach($menu as $key=>$item){
@@ -121,6 +125,9 @@ class MenuBuilder extends ContainerAware
 
         $menu->addChild('user_admins', array('label'=>'Admins','route' => 'admin_admins_list'))
 		->setAttribute('icon', '/bundles/admin/images/admins-icon.png');
+
+	$menu->addChild('user_groups', array('label'=>'Groups','route' => 'admin_groups_list'))
+		->setAttribute('icon', '/bundles/admin/images/groups-icon.gif');
 
 
 
