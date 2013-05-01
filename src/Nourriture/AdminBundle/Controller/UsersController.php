@@ -49,6 +49,7 @@ class UsersController extends Controller
 
 		$registration = new Registration();
 		$registration->setUser($user);
+		$registration->setProfile($user->getProfile());
 
 		$form = $this->createForm(new RegistrationType(), $registration);
 

@@ -24,7 +24,7 @@ class  UserType extends BaseType{
 		$builder->remove('current_password');
 		
 		//$builder->add('profile');
-		$builder->add('profile', new ProfileType());
+		//$builder->add('profile', new ProfileType());
 		//$builder->add('groups', new ProfileType());
 		
 

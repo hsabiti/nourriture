@@ -162,14 +162,14 @@ object,embed{outline:none;}
 div#popup-container,div#popup-saver{background:#fff;width:970px;height:auto;position:fixed;}
 div#popup-saver{top:0;left:0;height:100%;z-index:10000;background:#fff url(images/loader.gif) 50% 50% no-repeat;}
 
-div#logo{float:left;height:96px;z-index:100;background:url(images/header-left.png) 0 0 no-repeat;}
+div#logo{float:left;height:96px;z-index:100;background:url(/bundles/admin/images/header-left.png) 0 0 no-repeat;}
  div#logo h1{float:left;height:88px;width:240px;background:url(images/logo.png) 10px 0 no-repeat;}
   div#logo h1 a{display:block;height:88px;width:240px;}
    div#logo h1 a span{display:none;}
 
-div#info{float:right;padding:35px 35px 0 0;overflow:hidden;background:url(images/header-right.png) 100% 0 no-repeat;}
+div#info{float:right;padding:35px 35px 0 0;overflow:hidden;background:url(/bundles/admin/images/header-right.png) 100% 0 no-repeat;}
  div#info span{margin:0 0 0 1px;padding:1px 0 3px 24px;height:18px;line-height:18px;}
- div#info span.user{background:url(images/info-user.png) 0 0 no-repeat;}
+ div#info span.user{background:url(/bundles/admin/images/info-user.png) 0 0 no-repeat;}
  div#info span.date{background:url(images/info-date.png) 0 0 no-repeat;}
 
      
