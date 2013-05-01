@@ -11,7 +11,18 @@
 
     <div class="fieldset">	
 		<div class="legend">{% trans %} users.edit_profile {% endtrans %}</div>
+		<form action="" method="POST" {{ form_enctype(form) }}>
+			<div style="border: solid 1px red">	
+				{{ form_widget(form.user.profile) }}
+			</div>
+			<div style="border: solid 1px green">
+			{{ form_widget(form.user) }}
+			</div>
+			
 
+
+		<input type="submit">
+		</form>
 		<p> Disallowed functionality for now, only users should be able to modify thier own account</p>
 
 		</div>

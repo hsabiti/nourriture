@@ -52,10 +52,13 @@ class RouteVoter implements VoterInterface
        #if ($_m_url === $_url || $url_array[count($url_array)] === $m_url_array[count($m_url_array)] ) {
             return true;
         }
+
+#print_r($m_url_array);
 	
-	if ($_m_url === $_url ){
-		#return true;
-	}
+#die($_url . __FILE__.__LINE__);
+	#elseif (preg_match('/' . $m_url_array[2] . '\/' . $m_url_array[3] . '/i', $item->getUri())){
+	#	return true;
+	#}
 	
         return null;
     }

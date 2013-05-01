@@ -1,0 +1,28 @@
+<?php
+namespace Nourriture\UserBundle\Form;
+
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface,
+    Nourriture\UserBundle\Form\Type\UserFormType,
+    Nourriture\UserBundle\Form\Type\ProfileFormType;
+
+class  AdminUserTask extends AbstractType{
+	protected $user;
+
+	public function buildForm(FormBuilderInterface $builder, array $options){
+
+		//add our custom fields
+		 $builder->add('user', '', new UserFormType());
+		 $builder->add('profile', new ProfileFormType());
+	}
+
+
+	public function getName(){
+		
+		return 'nourriture_bundle_admin_user_task';
+
+	}
+	
+	
+}

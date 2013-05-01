@@ -12,6 +12,7 @@ x/
 vendor/*
 */logs/*
 */cache/*
+*/oldcode/*
 web/uploads/*
 web/bundles/*
 

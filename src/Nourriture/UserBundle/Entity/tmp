@@ -1,0 +1,61 @@
+116,172c116
+< 
+<     /**
+<      * Remove groups
+<      *
+<      * @param \Nourriture\UserBundle\Entity\Group $groups
+<      */
+<     public function removeGroup(\Nourriture\UserBundle\Entity\Group $groups)
+<     {
+<         $this->groups->removeElement($groups);
+<     }
+< 
+<     /**
+<      * Set profile
+<      *
+<      * @param \Nourriture\UserBundle\Entity\Profile $profile
+<      * @return User
+<      */
+<     public function setProfile(\Nourriture\UserBundle\Entity\Profile $profile = null)
+<     {
+<         $this->profile = $profile;
+<     
+<         return $this;
+<     }
+< 
+<     /**
+<      * Get profile
+<      *
+<      * @return \Nourriture\UserBundle\Entity\Profile 
+<      */
+<     public function getProfile()
+<     {
+<         return $this->profile;
+<     }
+< 
+<     /**
+<      * Set address
+<      *
+<      * @param \Nourriture\UserBundle\Entity\Address $address
+<      * @return User
+<      */
+<     public function setAddress(\Nourriture\UserBundle\Entity\Address $address = null)
+<     {
+<         $this->address = $address;
+<     
+<         return $this;
+<     }
+< 
+<     /**
+<      * Get address
+<      *
+<      * @return \Nourriture\UserBundle\Entity\Address 
+<      */
+<     public function getAddress()
+<     {
+<         return $this->address;
+<     }
+< }
+\ No newline at end of file
+---
+> }

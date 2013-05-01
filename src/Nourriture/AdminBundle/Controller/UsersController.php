@@ -3,8 +3,16 @@
 namespace Nourriture\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Nourriture\UserBundle\Form\Type\ProfileFormType, 
-        Nourriture\UserBundle\Entity\User;
+use 
+    Nourriture\UserBundle\Entity\User,
+    Nourriture\UserBundle\Form\AdminUserTask;
+
+#use Nourriture\UserBundle\Form\UserType;
+#use Nourriture\UserBundle\Form\Type\UserFormType;
+
+use Nourriture\UserBundle\Form\Model\Registration;
+use Nourriture\UserBundle\Form\Type\RegistrationType;
+
 
 class UsersController extends Controller
 {
@@ -23,21 +31,53 @@ class UsersController extends Controller
     public function editAction($id)
     {
 
-		/*$user = $this->getDoctrine()
+		$user = $this->getDoctrine()
 			->getRepository('UserBundle:User')
-			->findById($id);*/
-		#$form = $this->container->get('nourriture.profile.form.type');
+			->findOneBy(array('id'=>$id));
 
+//var_dump($user->getEmail());die(__FILE__.__LINE__);
 
-                #$request = $this->getRequest();
-                #$form->bindRequest($request);
+//var_dump($user->getId());
+//die(__FILE__.__LINE__);
+		 #$form = $this->createForm(new AdminUserTask(), $user);
+		 #$form = $this->createForm(new AdminUserTask($user));
+		
+		#user form on its own
+		#$form = $this->createForm(new UserFormType(), $user);
+		#symfonys very own
+		#$form = $this->createForm(new UserType(), $user);
 
-                #if($request->getMethod()=='POST'){
-		#	if($form->isValid()){
-		#	}			
-		#}
+		$registration = new Registration();
+		$registration->setUser($user);
 
-        return $this->render('AdminBundle:Users:users_edit.html.twig');
+		$form = $this->createForm(new RegistrationType(), $registration);
+
+#var_dump($user->getProfile());
+#die(__FILE__.__LINE__);
+
+                $request = $this->getRequest();
+
+                if($request->getMethod()=='POST'){
+                	$form->bindRequest($request);
+			if($form->isValid()){
+				$em = $this->getDoctrine()->getEntityManager();
+				$data = $request->request->get('nourriture_userbundle_registration');
+				if(null === $user->getProfile()){
+					$profile = new Profile();
+					$user->setProfile($profile);
+					die(__FILE__.__LINE__);
+				}
+				#$user->getProfile()->setMobile($data['user']['profile']['mobile']);
+				$em->persist($user);
+				$user->getProfile()->setUser($user);
+
+				$em->flush();
+#				#var_dump($user->getProfile()->setLocale($request->get));
+				#print_r($_POST);die(__FILE__.__LINE__);
+			}			
+		}
+
+        return $this->render('AdminBundle:Users:users_edit.html.twig', array('form'=>$form->createView()));
 
     }
     
