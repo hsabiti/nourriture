@@ -7,24 +7,22 @@
 
 	<div class="dashboard_left">
 	
-
-
     <div class="fieldset">	
 		<div class="legend">{% trans %} users.edit_profile {% endtrans %}</div>
-		<form action="" method="POST" {{ form_enctype(form) }}>
-			<div style="border: solid 1px red">	
-				{{ form_widget(form.user.profile) }}
-			</div>
-			<div style="border: solid 1px green">
-			{{ form_widget(form.user) }}
-			</div>
+		<form  action="" method="POST" {{ form_enctype(form) }} id="stepy">
+
+			<fieldset title="title 1">	
+				<legend> Desc 1 </legend>
+				{{ form_widget(form.user) }}
+			</fieldset>
 			
+			<fieldset title="title 2">
+				<legend> Desc 2 </legend>
+			{{ form_widget(form.profile) }} 
+			</fieldset>
+			<input type="submit" class="finish" value="Finish!"/>		 
 
-
-		<input type="submit">
 		</form>
-		<p> Disallowed functionality for now, only users should be able to modify thier own account</p>
-
 		</div>
 
 
@@ -45,5 +43,23 @@
 
 </div>
 
+<link rel="stylesheet" type="text/css" href="/bundles/admin/css/jquery/jquery-ui-1.8.2.custom.css">
+<link rel="stylesheet" type="text/css" href="/bundles/admin/css/stepy/jquery.stepy.css"> 
 
+<script type="text/javascript" src="/bundles/admin/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/bundles/admin/js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="/bundles/admin/js/jquery/jquery.validate.js"></script>
+<script type="text/javascript" src="/bundles/admin/js/jquery/jquery-ui-1.8.5.custom.min.js"></script>
+<script type="text/javascript" src="/bundles/admin/js/stepy/jquery.stepy.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function($){
+
+	//alert($('.stepy').attr('class'))
+
+	$('#stepy').stepy();
+	//alert(('form#stepy').length)
+});
+</script>
 {% endblock %}
