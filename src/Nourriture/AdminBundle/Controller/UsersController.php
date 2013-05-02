@@ -5,13 +5,10 @@ namespace Nourriture\AdminBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use 
     Nourriture\UserBundle\Entity\User,
-    Nourriture\UserBundle\Form\AdminUserTask;
-
-#use Nourriture\UserBundle\Form\UserType;
-#use Nourriture\UserBundle\Form\Type\UserFormType;
-
-use Nourriture\UserBundle\Form\Model\Registration;
-use Nourriture\UserBundle\Form\Type\RegistrationType;
+    Nourriture\UserBundle\Entity\Profile,
+    Nourriture\UserBundle\Entity\Address,
+    Nourriture\UserBundle\Form\Model\Registration,
+    Nourriture\UserBundle\Form\Type\RegistrationType;
 
 
 class UsersController extends Controller
@@ -39,41 +36,52 @@ class UsersController extends Controller
 
 //var_dump($user->getId());
 //die(__FILE__.__LINE__);
-		 #$form = $this->createForm(new AdminUserTask(), $user);
-		 #$form = $this->createForm(new AdminUserTask($user));
-		
-		#user form on its own
-		#$form = $this->createForm(new UserFormType(), $user);
-		#symfonys very own
-		#$form = $this->createForm(new UserType(), $user);
 
 		$registration = new Registration();
 		$registration->setUser($user);
 		$registration->setProfile($user->getProfile());
+		$registration->setAddress($user->getAddress());
 
 		$form = $this->createForm(new RegistrationType(), $registration);
 
-#var_dump($user->getProfile());
+#print_r($_POST);
+#var_dump($user->getAddress());
 #die(__FILE__.__LINE__);
 
                 $request = $this->getRequest();
 
                 if($request->getMethod()=='POST'){
+
                 	$form->bindRequest($request);
+				
 			if($form->isValid()){
 				$em = $this->getDoctrine()->getEntityManager();
 				$data = $request->request->get('nourriture_userbundle_registration');
 				if(null === $user->getProfile()){
 					$profile = new Profile();
+					$prof	 = (OBJECT) $data['profile'];
+					$profile->SetFirstName($prof->firstname);
+					$profile->SetLastName($prof->lastname);
+					$profile->SetMobile($prof->mobile);
+					$profile->SetLocale($prof->locale);
 					$user->setProfile($profile);
-					die(__FILE__.__LINE__);
 				}
-				#$user->getProfile()->setMobile($data['user']['profile']['mobile']);
-				$em->persist($user);
+				if(null === $user->getAddress()){
+					$address = new Address();
+					$addr	 = (OBJECT) $data['address'];
+					$address->SetHouseNo($addr->house_no);
+					$address->SetFirstLine($addr->firstline);
+					$address->SetPostCode($addr->postcode);
+					$user->setAddress($address);
+				}
+#print_r($data);
+#print_r($address);
+#die(__FILE__.__LINE__);
 				$user->getProfile()->setUser($user);
+				$user->getAddress()->setUser($user);
+				$em->persist($user);
 
 				$em->flush();
-#				#var_dump($user->getProfile()->setLocale($request->get));
 				#print_r($_POST);die(__FILE__.__LINE__);
 				
 				//if($user)//				

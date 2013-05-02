@@ -27,9 +27,8 @@ class User extends BaseUser
 	protected $profile;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="Nourriture\UserBundle\Entity\Address")
-	 *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-	 *      inversedJoinColumns={@ORM\JoinColumn(name="address_id", referencedColumnName="id")}
+	 * @ORM\OneToOne(targetEntity="Nourriture\UserBundle\Entity\Address", mappedBy="user", cascade={"persist"})
+         * @Assert\Type(type="Nourriture\UserBundle\Entity\Address")
 	 */
 	protected $address;
 

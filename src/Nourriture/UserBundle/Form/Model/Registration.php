@@ -4,6 +4,7 @@ namespace Nourriture\UserBundle\Form\Model;
 use Symfony\Component\Validator\Constraints as Assert;
 use Nourriture\UserBundle\Entity\User;
 use Nourriture\UserBundle\Entity\Profile;
+use Nourriture\UserBundle\Entity\Address;
 
 class  Registration{
 
@@ -19,6 +20,12 @@ class  Registration{
          */
         protected $profile;
 
+	/**
+         * @Assert\Type(type="Nourriture\UserBundle\Entity\Address")       
+         * @Assert\Valid()
+         */
+        protected $address;
+
 
 	public function setUser(User $user){
 		$this->user = $user;
@@ -32,6 +39,13 @@ class  Registration{
 	}
 	public function getProfile(){
 		return $this->profile;
+	}
+
+	public function setAddress(Address $address=null){
+		$this->address = $address;
+	}
+	public function getAddress(){
+		return $this->address;
 	}
 	
 }

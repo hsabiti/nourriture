@@ -30,6 +30,13 @@ use Symfony\Component\Validator\Constraints as Assert;
  	 */
  	private $house_no;
 
+	/**
+         * @ORM\OneToOne(targetEntity="Nourriture\UserBundle\Entity\User", inversedBy="address")
+         * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+         */
+
+        private $user;
+
  	/**
  	 * @var integer $firstline
  	 * @ORM\Column(type="string", length=25)
@@ -38,6 +45,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  	
  	
  	/**
+	 * @var string $postcode
  	 * @ORM\Column(type="string", length=25)
  	 */
  	private $postcode;
@@ -55,68 +63,7 @@ use Symfony\Component\Validator\Constraints as Assert;
         return $this->id;
     }
 
-    /**
-     * Set telephone
-     *
-     * @param string $telephone
-     */
-    public function setTelephone($telephone)
-    {
-        $this->telephone = $telephone;
-    }
-
-    /**
-     * Get telephone
-     *
-     * @return string 
-     */
-    public function getTelephone()
-    {
-        return $this->telephone;
-    }
     
-    public static function loadValidatorMetadata(ClassMetaData $metadata){
-    	/*$metadata->addGetterConstraint(
-    									'telephone', new Assert\NotBlank(array('message' => 'Going ML, telephone cannot be blank' . __FILE__ . __LINE__))
-    								);
-   		*/				
-    	//$metadata->addPropertyConstraint('telephone', new Assert\NotBlank(array('message'=>'Telephone Cannot be Blank')));
-    	$metadata->addPropertyConstraint('telephone', new Assert\MinLength(
-    																		array(
-    																				'limit'		=>	3,
-    																				'message'	=>	"Telephone is too short dude... " . __FILE__ . __LINE__
-    																			)
-    																	));
-    	$metadata->addPropertyConstraint('telephone', new Assert\MinLength(
-    			array(
-    					'limit'		=>	3,
-    					'message'	=>	"Mobile is too short dude... " . __FILE__ . __LINE__
-    				)
-    			));
-    																	
-    }
-    
-  
-
-    /**
-     * Set mobile
-     *
-     * @param integer $mobile
-     */
-    public function setMobile($mobile)
-    {
-        $this->mobile = $mobile;
-    }
-
-    /**
-     * Get mobile
-     *
-     * @return integer 
-     */
-    public function getMobile()
-    {
-        return $this->mobile;
-    }
 
     /**
      * Set house_no
@@ -185,5 +132,28 @@ use Symfony\Component\Validator\Constraints as Assert;
     public function getPostcode()
     {
         return $this->postcode;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Nourriture\UserBundle\Entity\User $user
+     * @return Address
+     */
+    public function setUser(\Nourriture\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Nourriture\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

@@ -51,7 +51,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  	
  	/**
  	 * @var integer $mobile
- 	 * @ORM\Column(type="integer", length=25)
+ 	 * @ORM\Column(type="string", length=25)
  	 */
  	private $mobile;
 
@@ -211,4 +211,28 @@ use Symfony\Component\Validator\Constraints as Assert;
     {
         return $this->locale;
     }
+
+    /**
+     * Set user
+     *
+     * @param \Nourriture\UserBundle\Entity\User $user
+     * @return Profile
+     */
+    public function setUser(\Nourriture\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Nourriture\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+   	
 }
