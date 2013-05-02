@@ -3,7 +3,7 @@ namespace Nourriture\UserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class  RegistrationType extends AbstractType{
 	
@@ -23,5 +23,9 @@ class  RegistrationType extends AbstractType{
 		return 'nourriture_userbundle_registration';
 
 	}
-	
+	public function setDefaultOptions(OptionsResolverInterface $resolver){
+		$resolver->setDefaults(array(
+			'csrf_protection' => false
+		));
+	}
 }

@@ -234,8 +234,5 @@ use Symfony\Component\Validator\Constraints as Assert;
     {
         return $this->user;
     }
-	
-   public function setUserId($id){
-	$this->user_id = id;
-   }	
+   	
 }

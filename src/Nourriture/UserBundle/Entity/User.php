@@ -2,7 +2,6 @@
 namespace Nourriture\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use FOS\UserBundle\Model\GroupInterface;
 use JMS\SecurityExtraBundle\Security\Util\String;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Entity\User as BaseUser;
@@ -21,14 +20,6 @@ class User extends BaseUser
 	 */
 	protected $id;
 	
-	/**
-	 * @ORM\ManyToMany(targetEntity="Nourriture\UserBundle\Entity\Group")
-	 * @ORM\JoinTable(name="fos_user_user_group"),
-	 *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-	 *      inversedJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
-	 */
-	protected $groups;
-
 	/**
 	 * @ORM\OneToOne(targetEntity="Nourriture\UserBundle\Entity\Profile", mappedBy="user", cascade={"persist"})
          * @Assert\Type(type="Nourriture\UserBundle\Entity\Profile")
@@ -60,8 +51,7 @@ class User extends BaseUser
 		#die(__FILE__.__LINE__);
 		parent::__construct();
 		// your own logic
-
-		$this->groups = new ArrayCollection();
+		$this->roles = array('ROLE_USER');
 	}
 
     /**
@@ -94,38 +84,6 @@ class User extends BaseUser
     }
    
 
-    /**
-     * Get groups
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getGroups()
-    {
-        return $this->groups;
-    }
-    
-    public function addGroup(GroupInterface $group)
-    {
-    	if($this->getGroups() ==null){
-    		$this->groups[] = $group;
-    	}elseif (!$this->getGroups()->contains($group)) {
-    		$this->getGroups()->add($group);
-    	}
-    
-    	return $this;
-    }
-
-
-
-    /**
-     * Remove groups
-     *
-     * @param \Nourriture\UserBundle\Entity\Group $groups
-     */
-    public function removeGroup(GroupInterface $group)
-    {
-        $this->groups->removeElement($group);
-    }
 
     /**
      * Set profile
@@ -172,4 +130,5 @@ class User extends BaseUser
     {
         return $this->address;
     }
+
 }

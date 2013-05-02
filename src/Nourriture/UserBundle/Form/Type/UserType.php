@@ -2,7 +2,7 @@
 namespace Nourriture\UserBundle\Form\Type;
 
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-
+use Doctrine\ORM\EntityRepository;
 
 use  Symfony\Component\Form\FormBuilderInterface,
      FOS\UserBundle\Form\Type\ProfileFormType as BaseType;
@@ -25,7 +25,7 @@ class  UserType extends BaseType{
 		
 		//$builder->add('profile');
 		//$builder->add('profile', new ProfileType());
-		//$builder->add('groups', new ProfileType());
+		
 		
 
 	}
@@ -41,7 +41,7 @@ class  UserType extends BaseType{
         {
         
 	 	$resolver->setDefaults(array(
-            		'data_class' => 'Nourriture\UserBundle\Entity\User'
+            		'data_class' 		=> 'Nourriture\UserBundle\Entity\User'
         	));
        }
 	

@@ -186,18 +186,18 @@ div#popup-container div#content{padding:10px;}
  div#content a.button:hover > span{background-position:100% -24px;}
  div#content a.button:active > span{background-position:100% -48px;}
    div#content a.button > span > span{display:block;height:24px;font-weight:bold !important;padding:0 0 0 24px;}
-   div#content a.button.up > span > span{background:url(images/up.png) 0 4px no-repeat;}
-   div#content a.button.add > span > span{background:url(images/add.png) 0 4px no-repeat;}
-   div#content a.button.down > span > span{background:url(images/down.png) 0 4px no-repeat;}
-   div#content a.button.save > span > span{background:url(images/disk.png) 0 4px no-repeat;}
-   div#content a.button.view > span > span{background:url(images/view.png) 0 4px no-repeat;}
-   div#content a.button.edit > span > span{background:url(images/edit.png) 0 3px no-repeat;}
-   div#content a.button.upload > span > span{background:url(images/disk.png) 0 4px no-repeat;}
-   div#content a.button.image > span > span{background:url(images/picture.png) 0 4px no-repeat;}
-   div#content a.button.delete > span > span{background:url(images/delete.png) 0 4px no-repeat;}
-   div#content a.button.refresh > span > span{background:url(images/refresh.png) 0 4px no-repeat;}
-   div#content a.button.publish > span > span{background:url(images/publish.png) 0 4px no-repeat;}
-   div#content a.button.unpublish > span > span{background:url(images/unpublish.png) 0 4px no-repeat;}
+   div#content a.button.up > span > span{background:url(/bundles/admin/images/up.png) 0 4px no-repeat;}
+   div#content a.button.add > span > span{background:url(/bundles/admin/images/add.png) 0 4px no-repeat;}
+   div#content a.button.down > span > span{background:url(bundles/admin/images/down.png) 0 4px no-repeat;}
+   div#content a.button.save > span > span{background:url(/bundles/admin/images/disk.png) 0 4px no-repeat;}
+   div#content a.button.view > span > span{background:url(/bundles/admin/images/view.png) 0 4px no-repeat;}
+   div#content a.button.edit > span > span{background:url(/bundles/admin/images/edit.png) 0 3px no-repeat;}
+   div#content a.button.upload > span > span{background:url(/bundles/admin/images/disk.png) 0 4px no-repeat;}
+   div#content a.button.image > span > span{background:url(/bundles/admin/images/picture.png) 0 4px no-repeat;}
+   div#content a.button.delete > span > span{background:url(/bundles/admin/images/delete.png) 0 4px no-repeat;}
+   div#content a.button.refresh > span > span{background:url(/bundles/admin/images/refresh.png) 0 4px no-repeat;}
+   div#content a.button.publish > span > span{background:url(/bundles/admin/images/publish.png) 0 4px no-repeat;}
+   div#content a.button.unpublish > span > span{background:url(/bundles/admin/images/unpublish.png) 0 4px no-repeat;}
  div#content a.button.empty{}
   div#content a.button.empty > span{}
    div#content a.button.empty > span > span{padding:0;width:16px;}

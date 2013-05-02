@@ -27,7 +27,7 @@ class  Registration{
 		return $this->user;
 	}
 	
-	public function setProfile(Profile $profile){
+	public function setProfile(Profile $profile=null){
 		$this->profile = $profile;
 	}
 	public function getProfile(){

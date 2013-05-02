@@ -9,6 +9,9 @@
 	
     <div class="fieldset">	
 		<div class="legend">{% trans %} users.edit_profile {% endtrans %}</div>
+		<div class="errors">
+		  {{ form_errors(form) }}
+		</div>
 		<form  action="" method="POST" {{ form_enctype(form) }} id="stepy">
 
 			<fieldset title="title 1">	

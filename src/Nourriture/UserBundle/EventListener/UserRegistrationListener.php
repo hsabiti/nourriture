@@ -31,11 +31,12 @@ class UserRegistrationListener implements EventSubscriberInterface
 
     public function onRegistrationSuccess(FormEvent $event)
     {
-        $this->user = $event->getForm()->getData();
-        $group_name = 'Users';
-        $entity = $this->em->getRepository('UserBundle:Group')->findOneByName($group_name); // You could do that by Id, too
-        $this->user->addGroup($entity);
-        $this->em->flush();
+	#change this to add role to user
+        #$this->user = $event->getForm()->getData();
+        #$group_name = 'Users';
+        #$entity = $this->em->getRepository('UserBundle:Group')->findOneByName($group_name); // You could do that by Id, too
+        #$this->user->addGroup($entity);
+        #$this->em->flush();
 
     }
 }

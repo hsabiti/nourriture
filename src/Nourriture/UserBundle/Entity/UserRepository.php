@@ -21,11 +21,9 @@ class UserRepository extends EntityRepository
             )->setParameter("role", "%$role%")
 		->getResult(); */
 	return $this->createQueryBuilder('u')
-			->select('u,g')
-			->leftJoin('u.groups', 'g')
+			->select('u')
 			->leftJoin('u.profile', 'p')
 			->where('u.roles LIKE :role')
-			->orWhere('g.roles LIKE :role')
 			->setParameter('role', "%$role%")
 			->orderBy('u.username','ASC')
 			->groupBy('u')

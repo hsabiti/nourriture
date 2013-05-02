@@ -52,7 +52,7 @@ class  ProfileType extends AbstractType{
         {
 
                 $resolver->setDefaults(array(
-                        'data_class' => 'Nourriture\UserBundle\Entity\Profile'
+                        'data_class'	 =>  'Nourriture\UserBundle\Entity\Profile'
                 ));
         }
 

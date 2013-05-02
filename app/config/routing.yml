@@ -29,11 +29,6 @@ fos_user_change_password:
     prefix: /{_locale}/password
     requirements:
        _locale: en|fr    
-fos_user_group:
-    resource: "@FOSUserBundle/Resources/config/routing/group.xml"
-    prefix: /{_locale}/group
-    requirements:
-       _locale: en|fr    
 #user:
 #    resource: "@UserBundle/Resources/config/routing.yml"
 #    prefix:   /

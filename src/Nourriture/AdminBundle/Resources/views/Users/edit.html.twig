@@ -1,0 +1,75 @@
+{% extends '::adminhomebase.html.twig' %}
+
+
+{% block admin_content %}
+
+<div class="dashboard_container">
+
+	<div class="dashboard_left">
+	
+    <div class="fieldset">	
+		<div class="legend">{% trans %} users.edit_profile {% endtrans %}</div>
+		<div class="errors">
+		  {{ form_errors(form) }}
+		</div>
+		<form  action="" method="POST" {{ form_enctype(form) }} id="stepy">
+		<div id="fieldWrapper">
+			<span class="step" id="first">	
+				<legend> {% trans %} form.details {% endtrans %}</legend>
+				{{ form_widget(form.user) }}
+			</span>
+			
+			<span class="step" id="profile">
+				<legend>{% trans %} form.profile {% endtrans %} </legend>
+			{{ form_widget(form.profile) }} 
+			</span>
+		</div>	
+		<div id="navigation">
+			<input type="reset"  id="back" value="Back"/>		 
+			<input type="submit" id="next" value="Next"/>		 
+		</div>
+		</form>
+		</div>
+
+
+
+
+
+	</div>
+
+	<div class="dashboard_right">
+		<div class="fieldset">
+			<div class="legend">Quick Links</div>
+			<ul class="large">
+			{{ knp_menu_render('admin_admins', {'template':'AdminBundle:Menu:knp_menu.html.twig'}) }}
+
+			</ul>
+		</div>
+	</div>
+
+</div>
+
+<link rel="stylesheet" type="text/css" href="/bundles/admin/css/jquery/jquery-ui-1.8.2.custom.css">
+{# <link rel="stylesheet" type="text/css" href="/bundles/admin/css/stepy/jquery.stepy.css"> #}
+
+<script type="text/javascript" src="/bundles/admin/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/bundles/admin/js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="/bundles/admin/js/jquery/jquery.validate.js"></script>
+<script type="text/javascript" src="/bundles/admin/js/jquery/jquery-ui-1.8.5.custom.min.js"></script>
+<script type="text/javascript" src="/bundles/admin/js/formwizard/jquery.form.wizard.js"></script>
+<script type="text/javascript" src="/bundles/admin/js/formwizard/bbq.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function($){
+
+	//alert($('.stepy').attr('class'))
+
+	$('#stepy').formwizard({
+		validationEnabled: true,
+		focusFirstInput: true
+	});
+	//alert(('form#stepy').length)
+});
+</script>
+{% endblock %}

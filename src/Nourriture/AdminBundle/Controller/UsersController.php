@@ -22,7 +22,7 @@ class UsersController extends Controller
 
 	 $users = $this->getDoctrine()
                         ->getRepository('UserBundle:User')
-                        ->findByRole('ROLE_USER');
+                        ->findByRole('');
 	#var_dump($users);
 	#die(__FILE__.__LINE__);
         return $this->render('AdminBundle:Users:users_list.html.twig', array('users' => $users));
@@ -75,10 +75,14 @@ class UsersController extends Controller
 				$em->flush();
 #				#var_dump($user->getProfile()->setLocale($request->get));
 				#print_r($_POST);die(__FILE__.__LINE__);
+				
+				//if($user)//				
+				#add a redirect to  user/admin edit depending on user perms
+				return $this->redirect($this->generateUrl('admin_users_list'));
 			}			
 		}
 
-        return $this->render('AdminBundle:Users:users_edit.html.twig', array('form'=>$form->createView()));
+        return $this->render('AdminBundle:Users:edit.html.twig', array('form'=>$form->createView()));
 
     }
     
