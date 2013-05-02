@@ -38,20 +38,17 @@ class RouteVoter implements VoterInterface
 
 	$m_url_array =  array_filter(explode('/', $m_url));
 	$url_array =  array_filter(explode( '/', $url));
-
+#print_r(count($url_array));
+#die(__FILE__.__LINE__);
 	$_m_url = $m_url_array[count($m_url_array)-1];
 	$_url   = $url_array[count($url_array)-1];
 
-#	print $_m_url . " => " . $_url . "<br />";
 
-#        print_r(array_filter($url_array));
-#        die(__FILE__.__LINE__);
-
-       #if ($item->getUri() === $this->container->get('request')->getRequestUri()) {
        if ($_m_url === $_url && $url_array[count($url_array)] === $m_url_array[count($m_url_array)] ) {
-       #if ($_m_url === $_url || $url_array[count($url_array)] === $m_url_array[count($m_url_array)] ) {
             return true;
-        }
+        }elseif(count($url_array)>=4 && $url_array[count($url_array)-1] === $m_url_array[count($m_url_array)-1]){
+	    return true;	
+	}
 
 #print_r($m_url_array);
 	

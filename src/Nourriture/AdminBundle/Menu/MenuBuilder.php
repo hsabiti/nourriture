@@ -8,14 +8,16 @@ class MenuBuilder extends ContainerAware
 {
     private $factory;
     private $translator;
+    private $security;	
 
     /**
      * @param FactoryInterface $factory
      */
-    public function __construct(FactoryInterface $factory, $translator)
+    public function __construct(FactoryInterface $factory, $translator, $security)
     {
         $this->factory      = $factory;
 	$this->translator   = $translator;
+	$this->security	    = $security;	
     }
 
     public function createMainMenu(Request $request)
@@ -23,6 +25,8 @@ class MenuBuilder extends ContainerAware
 
 	$t = $this->translator;
 
+
+#die(__FILE__.__LINE__);
 #print $t->getLocale();
 #die($t->trans('dashboard.dashboard'));
 	#print_r($request->getLocale());print "\n";die(__FILE__.__LINE__);
@@ -48,6 +52,7 @@ class MenuBuilder extends ContainerAware
 	$menu->addChild('users', array('label'=>$t->trans('dashboard.users'),'route' => 'admin_users_list'));
 		$menu['users']->addChild('users', array('label'=>$t->trans('dashboard.list_users'), 'route'=>'admin_users_list', 'attributes'=>array('class'=>'users')));
 		$menu['users']->addChild('add', array('label'=>$t->trans('dashboard.add_user'), 'route'=>'admin_users_add', 'attributes'=>array('class'=>'placeholder')));
+		$menu['users']->addChild('edit', array('label'=>$t->trans('dashboard.edit_user'), 'route'=>'admin_users_edit','routeParameters'=>array('id'=>$this->security->getToken()->getUser()->getId()), 'attributes'=>array('class'=>'placeholder')));
 
 	$menu->addChild('admins', array('label'=>$t->trans('dashboard.admins'),'route' => 'admin_admins_list'));
 		$menu['admins']->addChild('list', array('label'=>$t->trans('dashboard.list_admins'), 'route'=>'admin_admins_list', 'attributes'=>array('class'=>'placeholder')));

@@ -18,8 +18,8 @@ admin_products_add:
     defaults: { _controller: AdminBundle:Products:add }
 
 admin_users_list:
-    pattern:  /admin/users/list
-    defaults: { _controller: AdminBundle:Users:list }
+    pattern:  /admin/users/list.{_format}
+    defaults: { _controller: AdminBundle:Users:list, _format:html }
 
 admin_users_edit:
     pattern:  /admin/users/edit/{id}
