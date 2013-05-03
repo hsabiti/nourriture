@@ -32,8 +32,8 @@
 					<td>{{ admin.lastlogin | date("Y-m-d H:i:s") }}</td>
 					<td>2011-12-14 13:55:07</td>
 					<td>
-			           	<a class="button edit" href="/admin/admins/edit/{{admin.id}}"><span><span>{%trans%}dashboard.edit{%endtrans%}</span></span></a>
-					<a class="button delete" href="/admin/admins/delete/{{admin.id}}"><span><span>{%trans%}dashboard.delete{%endtrans%}</span></span></a>
+			           	<a class="button edit" href="{{ path('admin_admins_edit', {'id': admin.id}) }}"><span><span>{%trans%}dashboard.edit{%endtrans%}</span></span></a>
+					<a class="button delete" href="{{ path('admin_admins_delete', {'id': admin.id}) }}"><span><span>{%trans%}dashboard.delete{%endtrans%}</span></span></a>
 					</td> 
 			    </tr>
 			{% endfor %}

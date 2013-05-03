@@ -45,3 +45,16 @@ admin_admins_list:
 admin_admins_add:
     pattern:  /admin/admins/add
     defaults: { _controller: AdminBundle:Admins:add }
+
+admin_admins_edit:
+    pattern:  /admin/admins/edit/{id}
+    defaults: { _controller: AdminBundle:Admins:edit }
+    requirements:
+              id: \d+
+
+admin_admins_delete:
+    pattern:  /admin/admins/delete/{id}
+    defaults: { _controller: AdminBundle:Admins:delete }
+    requirements:
+              id: \d+
+

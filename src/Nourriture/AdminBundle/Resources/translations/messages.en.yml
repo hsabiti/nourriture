@@ -32,7 +32,7 @@ users:
     edit_profile: Editing User Profile
     delete_profile: Deleting User Profile
     edit_user: Edit User
-
+    edit_admin: Edit Admin
 
 # Group
 group:

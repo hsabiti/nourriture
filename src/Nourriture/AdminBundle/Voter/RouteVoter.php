@@ -44,9 +44,10 @@ class RouteVoter implements VoterInterface
 	$_url   = $url_array[count($url_array)-1];
 
 
-       if ($_m_url === $_url && $url_array[count($url_array)] === $m_url_array[count($m_url_array)] ) {
+       if (count($url_array) < 4 && $_m_url === $_url && $url_array[count($url_array)] === $m_url_array[count($m_url_array)] ) {
             return true;
-        }elseif(count($url_array)>=4 && $url_array[count($url_array)-1] === $m_url_array[count($m_url_array)-1]){
+        }elseif(count($url_array)>4 && $url_array[count($url_array)-1] === $m_url_array[count($m_url_array)-1] && $url_array[count($url_array)-2] === $m_url_array[count($m_url_array)-2] ){
+	#die($m_url_array[count($m_url_array)-2] . __FILE__.__LINE__);
 	    return true;	
 	}
 

@@ -20,9 +20,7 @@ class UsersController extends Controller
 	 $users = $this->getDoctrine()
                         ->getRepository('UserBundle:User')
                         ->findByRole('');
-	#var_dump($users);
-	#die(__FILE__.__LINE__);
-        return $this->render('AdminBundle:Users:users_list.html.twig', array('users' => $users));
+        return $this->render('AdminBundle:Users:list.html.twig', array('users' => $users));
     }
 
     public function editAction($id)
@@ -43,10 +41,6 @@ class UsersController extends Controller
 		$registration->setAddress($user->getAddress());
 
 		$form = $this->createForm(new RegistrationType(), $registration);
-
-#print_r($_POST);
-#var_dump($user->getAddress());
-#die(__FILE__.__LINE__);
 
                 $request = $this->getRequest();
 
@@ -74,9 +68,7 @@ class UsersController extends Controller
 					$address->SetPostCode($addr->postcode);
 					$user->setAddress($address);
 				}
-#print_r($data);
-#print_r($address);
-#die(__FILE__.__LINE__);
+
 				$user->getProfile()->setUser($user);
 				$user->getAddress()->setUser($user);
 				$em->persist($user);
@@ -84,8 +76,6 @@ class UsersController extends Controller
 				$em->flush();
 				#print_r($_POST);die(__FILE__.__LINE__);
 				
-				//if($user)//				
-				#add a redirect to  user/admin edit depending on user perms
 				return $this->redirect($this->generateUrl('admin_users_list'));
 			}			
 		}
@@ -96,7 +86,7 @@ class UsersController extends Controller
     
     public function deleteAction(){
 
-	return $this->render('AdminBundle:Users:users_delete.html.twig');
+	return $this->render('AdminBundle:Users:delete.html.twig');
 
     }
 

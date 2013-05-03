@@ -57,6 +57,7 @@ class MenuBuilder extends ContainerAware
 	$menu->addChild('admins', array('label'=>$t->trans('dashboard.admins'),'route' => 'admin_admins_list'));
 		$menu['admins']->addChild('list', array('label'=>$t->trans('dashboard.list_admins'), 'route'=>'admin_admins_list', 'attributes'=>array('class'=>'placeholder')));
 		$menu['admins']->addChild('add', array('label'=>$t->trans('dashboard.add_admin'), 'route'=>'admin_admins_add', 'attributes'=>array('class'=>'placeholder')));
+		$menu['admins']->addChild('edit', array('label'=>$t->trans('users.edit_admin'), 'route'=>'admin_admins_edit','routeParameters'=>array('id'=>$this->security->getToken()->getUser()->getId()), 'attributes'=>array('class'=>'placeholder')));
 
 	
         // ... add more children

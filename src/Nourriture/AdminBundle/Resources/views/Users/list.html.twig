@@ -3,6 +3,62 @@
 
 {% block admin_content %}
 
-Hellow {{ users.name}}!
+<div class="dashboard_container">
+
+	<div class="dashboard_left">
+	
+
+
+    <div class="fieldset">	
+		<div class="legend">{%trans%}dashboard.recently_registered_users{%endtrans%}</div>
+                <table cellspacing="0" cellpadding="0" border="0" class="admin">
+                        <thead>
+                                <tr>
+                                <th width="20" align="center">{%trans%}dashboard.active{%endtrans%}</th>
+                                <th>{%trans%}dashboard.email{%endtrans%}</th>
+                                <th>{%trans%}dashboard.signedup{%endtrans%}</th>
+                                <th>{%trans%}dashboard.last_login{%endtrans%}</th>
+                                <th width="200">{%trans%}dashboard.actions{%endtrans%}</th>
+                                </tr>
+                        </thead>
+
+			<tbody>
+			{% for user in users %}
+				<tr>
+			        <td align="center">
+					<img alt="status" src="/bundles/admin/images/{{ user.enabled ? 'green-dot.png' : 'gray-dot.png' }}">
+				</td>
+					<td>{{ user.email }}</td>
+					<td>{{ user.lastlogin | date("Y-m-d H:i:s") }}</td>
+					<td>2011-12-14 13:55:07</td>
+					<td>
+			           	<a class="button edit" href="{{ path('admin_users_edit', {'id': user.id}) }}"><span><span>{%trans%}dashboard.edit{%endtrans%}</span></span></a>
+					<a class="button delete" href="{{ path('admin_users_delete', {'id': user.id}) }}"><span><span>{%trans%}dashboard.delete{%endtrans%}</span></span></a>
+					</td> 
+			    </tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+
+
+
+
+
+
+	</div>
+	<div class="dashboard_right">
+		<div class="fieldset">
+			<div class="legend">{%trans%} dashboard.quick_links {%endtrans%}</div>
+			<ul class="large">
+			{{ knp_menu_render('admin_admins', {'template':'AdminBundle:Menu:knp_menu.html.twig'}) }}
+
+			</ul>
+		</div>
+	</div>
+
+</div>
+
 
 {% endblock %}

@@ -29,7 +29,7 @@ users:
     edit_profile: Modification d'un profil de l'utilisateur
     delete_profile: Supprimer le profil de l'utilisateur
     edit_user: Modifier l'utilisateur
-
+    edit_admin: Modifier Un Administrateur
 # Group
 group:
     edit:
