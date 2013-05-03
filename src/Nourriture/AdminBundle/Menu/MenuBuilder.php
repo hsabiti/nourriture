@@ -52,7 +52,7 @@ class MenuBuilder extends ContainerAware
 	$menu->addChild('users', array('label'=>$t->trans('dashboard.users'),'route' => 'admin_users_list'));
 		$menu['users']->addChild('users', array('label'=>$t->trans('dashboard.list_users'), 'route'=>'admin_users_list', 'attributes'=>array('class'=>'users')));
 		$menu['users']->addChild('add', array('label'=>$t->trans('dashboard.add_user'), 'route'=>'admin_users_add', 'attributes'=>array('class'=>'placeholder')));
-		$menu['users']->addChild('edit', array('label'=>$t->trans('dashboard.edit_user'), 'route'=>'admin_users_edit','routeParameters'=>array('id'=>$this->security->getToken()->getUser()->getId()), 'attributes'=>array('class'=>'placeholder')));
+		$menu['users']->addChild('edit', array('label'=>$t->trans('users.edit_user'), 'route'=>'admin_users_edit','routeParameters'=>array('id'=>$this->security->getToken()->getUser()->getId()), 'attributes'=>array('class'=>'placeholder')));
 
 	$menu->addChild('admins', array('label'=>$t->trans('dashboard.admins'),'route' => 'admin_admins_list'));
 		$menu['admins']->addChild('list', array('label'=>$t->trans('dashboard.list_admins'), 'route'=>'admin_admins_list', 'attributes'=>array('class'=>'placeholder')));
@@ -73,24 +73,27 @@ class MenuBuilder extends ContainerAware
     public function createDashboardMenu(Request $request)
     {
 
+	$t = $this->translator;
+
+
         $menu = $this->factory->createItem('root');
 	
 	
 	$menu->setChildrenAttributes(array('class'=>'nav'));
 
 
-       # $menu->addChild('home', array('label'=>'Home','route' => 'admin_dashboard_list'))
+       # $menu->addChild('home', array('label'=>$t->trans('dashboard.home'),'route' => 'admin_dashboard_list'))
        #	->setAttribute('icon', '/bundles/admin/images/home-icon.png');
 
-        $menu->addChild('products', array('label'=>'Products','route' => 'admin_products_list'))
+        $menu->addChild('products', array('label'=>$t->trans('dashboard.products'),'route' => 'admin_products_list'))
 		->setAttribute('icon', '/bundles/admin/images/products-icon.png');
 
 
-        $menu->addChild('users', array('label'=>'Users','route' => 'admin_users_list'))
+        $menu->addChild('users', array('label'=>$t->trans('dashboard.users'),'route' => 'admin_users_list'))
 		->setAttribute('icon', '/bundles/admin/images/users-icon.png');
 
 
-        $menu->addChild('user_admins', array('label'=>'Admins','route' => 'admin_admins_list'))
+        $menu->addChild('user_admins', array('label'=>$t->trans('dashboard.admins_short'),'route' => 'admin_admins_list'))
 		->setAttribute('icon', '/bundles/admin/images/admins-icon.png');
 
 
@@ -108,25 +111,30 @@ class MenuBuilder extends ContainerAware
     public function createAdminsMenu(Request $request)
     {
 
+
+	$t = $this->translator;
+
+
         $menu = $this->factory->createItem('root');
 	
 	
 	$menu->setChildrenAttributes(array('class'=>'nav'));
 
 
-        $menu->addChild('home', array('label'=>'Home','route' => 'admin_dashboard_list'))
-		->setAttribute('icon', '/bundles/admin/images/home-icon.png');
+        $menu->addChild('home', array('label'=>$t->trans('dashboard.home'),'route' => 'admin_dashboard_list'))
+       		->setAttribute('icon', '/bundles/admin/images/home-icon.png');
 
-        $menu->addChild('products', array('label'=>'Products','route' => 'admin_products_list'))
+        $menu->addChild('products', array('label'=>$t->trans('dashboard.products'),'route' => 'admin_products_list'))
 		->setAttribute('icon', '/bundles/admin/images/products-icon.png');
 
 
-        $menu->addChild('users', array('label'=>'Users','route' => 'admin_users_list'))
+        $menu->addChild('users', array('label'=>$t->trans('dashboard.users'),'route' => 'admin_users_list'))
 		->setAttribute('icon', '/bundles/admin/images/users-icon.png');
 
 
-        $menu->addChild('user_admins', array('label'=>'Admins','route' => 'admin_admins_list'))
+        $menu->addChild('user_admins', array('label'=>$t->trans('dashboard.admins_short'),'route' => 'admin_admins_list'))
 		->setAttribute('icon', '/bundles/admin/images/admins-icon.png');
+
 
 
         // ... add more children
@@ -136,6 +144,8 @@ class MenuBuilder extends ContainerAware
 	}
 	
         return $menu;
+
     }
+
 }
 

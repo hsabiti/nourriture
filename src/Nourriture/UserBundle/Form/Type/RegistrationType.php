@@ -12,7 +12,7 @@ class  RegistrationType extends AbstractType{
 
 		//add our custom fields
 		$builder
-            		->add('user', new UserType())
+            		->add('user',    new UserType())
 			->add('profile', new ProfileType())
 			->add('address', new AddressType());
 		

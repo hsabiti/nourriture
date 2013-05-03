@@ -7,11 +7,11 @@
 
 	<div class="dashboard_left">
 	<div class="fieldset">
-		<div class="legend">At a Glance</div>
+		<div class="legend">{%trans%}dashboard.at_a_glance{%endtrans%}</div>
 		
 		<div class="large">
-			<p class="left">Users:</p>
-			<p class="right"><a href="http://iroking.com/admin/users">38 Registered</a></p>
+			<p class="left">{%trans%}dashboard.users{%endtrans%}</p>
+			<p class="right"><a href="/admin/users/list">38 {%trans%}dashboard.registered{%endtrans%}</a></p>
 		</div>		
 
 		<br style="clear:both;">
@@ -20,26 +20,26 @@
 
 
     <div class="fieldset">
-		<div class="legend">Recently Registered Users</div>
+		<div class="legend">{%trans%}dashboard.recently_registered_users{%endtrans%}</div>
 		<table cellspacing="0" cellpadding="0" border="0" class="admin">
 			<thead>
 				<tr>
-			        <th width="20" align="center">Active</th>
-			        <th>Email</th>
-			        <th>Signed up</th>
-			        <th>Last sign in</th>
-			        <th width="200">Actions</th>
+			        <th width="20" align="center">{%trans%}dashboard.active{%endtrans%}</th>
+			        <th>{%trans%}dashboard.email{%endtrans%}</th>
+			        <th>{%trans%}dashboard.signedup{%endtrans%}</th>
+			        <th>{%trans%}dashboard.last_login{%endtrans%}</th>
+			        <th width="200">{%trans%}dashboard.actions{%endtrans%}</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-			        <td align="center"><img alt="" src="http://iroking.com/assets/a/images/green-dot.png"></td>
+			        <td align="center"><img alt="" src="/bundles/admin/images/green-dot.png"></td>
 					<td>hsabiti@yahoo.com</td>
 					<td>2011-12-14 13:55:07</td>
 					<td>2011-12-14 13:55:07</td>
 					<td>
-			           	<a class="button edit" href="http://iroking.com/admin/users/edit/47"><span><span>Edit</span></span></a>
-						<a class="button delete" href="http://iroking.com/admin/users/delete/47"><span><span>Delete</span></span></a>
+			           	<a class="button edit" href="http://iroking.com/admin/users/edit/47"><span><span>{%trans%}dashboard.edit{%endtrans%}</span></span></a>
+					<a class="button delete" href="http://iroking.com/admin/users/delete/47"><span><span>{%trans%}dashboard.delete{%endtrans%}</span></span></a>
 					</td> 
 			    </tr>
 			</tbody>
@@ -55,7 +55,7 @@
 	</div>
 	<div class="dashboard_right">
 		<div class="fieldset">
-			<div class="legend">Quick Links</div>
+			<div class="legend">{%trans%} dashboard.quick_links {%endtrans%}</div>
 			<ul class="large">
 			{{ knp_menu_render('admin_dashboard', {'template':'AdminBundle:Menu:knp_menu.html.twig'}) }}
 

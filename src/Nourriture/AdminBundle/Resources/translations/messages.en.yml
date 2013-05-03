@@ -1,8 +1,10 @@
 dashboard:
      dashboard: Dashboard
+     home: Home
      products: Products
      users:  Users
      admins: Administrators
+     admins_short: Admins
      list:  List
      list_products: List Products
      add_product: Add New Product
@@ -10,11 +12,26 @@ dashboard:
      add_user: Add New User
      list_admins: Lists Admins
      add_admin: Add Admin
+     quick_links: Quick Links
+     at_a_glance: At a Glance:
+     registered: Registered
+     recently_registered_users: Recently Registered Users
+     active: Active
+     email: Email
+     signedup: Signed Up
+     last_login: Last Login
+     actions: Actions
+     edit: Edit
+     delete: Delete
+     logout: Logout
 
+
+
+     
 users:
     edit_profile: Editing User Profile
     delete_profile: Deleting User Profile
-
+    edit_user: Edit User
 
 
 # Group

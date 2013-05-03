@@ -1,21 +1,34 @@
 dashboard:
      dashboard: Tableu De Bord   
+     home: Maison
      products: Produits
      users:  Utilisateurs
      admins: Les Administrateurs
+     admins_short: Les Adminis
      list: Liste
-
+      
      list_products: Liste Des Produits
      add_product: Ajouter Un Produit
      list_users: Liste Des Utilisateurs
      add_user: Ajouter Un Utilisateur
      list_admins: Liste Des Administrateurs
      add_admin: Ajouter Un Administrateur
-
+     quick_links: Liens Rapides
+     at_a_glance: At a Glance:
+     registered: Inscrit
+     recently_registered_users: Utilisateurs Récemment Inscrits
+     active: Actif
+     email: Email
+     signedup: Enregistré Le 
+     last_login: Dernière Connexion
+     actions: Actions
+     edit: Modifier
+     delete: Supprimer
+     logout: Déconnexion
 users:
     edit_profile: Modification d'un profil de l'utilisateur
     delete_profile: Supprimer le profil de l'utilisateur
-
+    edit_user: Modifier l'utilisateur
 
 # Group
 group:

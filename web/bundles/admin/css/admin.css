@@ -178,14 +178,14 @@ div.comments div#innercontent {padding:0px 20px;}
 div#popup-container div#content{padding:10px;}
  div#content iframe{width:100%;border:0;}
 
- div#content a.button{display:inline-block;color:#585858;vertical-align:middle;text-decoration:none;height:24px;padding:0 0 0 14px;line-height:24px;margin:0;font-size:12px;background:url(/bundles/admin/images/button-bg-left.png) 0 0 no-repeat;}
+ div#content a.button{display:inline-block;color:#585858;vertical-align:middle;text-decoration:none;height:24px;padding:0 0 0 14px;line-height:24px;margin:0;font-size:10px;background:url(/bundles/admin/images/button-bg-left.png) 0 0 no-repeat;}
  div#content a.button + a.button{margin:0 0 0 10px;}
  div#content a.button:hover{background-position:0 -24px;}
  div#content a.button:active{background-position:0 -48px;}
   div#content a.button > span{display:block;color:#585858;padding:0 14px 0 0;background:url(/bundles/admin/images/button-bg.png) 100% 0 no-repeat;}
  div#content a.button:hover > span{background-position:100% -24px;}
  div#content a.button:active > span{background-position:100% -48px;}
-   div#content a.button > span > span{display:block;height:24px;font-weight:bold !important;padding:0 0 0 24px;}
+   div#content a.button > span > span{display:block;height:24px;font-weight:bold !important;padding:0 0 0 20px;}
    div#content a.button.up > span > span{background:url(/bundles/admin/images/up.png) 0 4px no-repeat;}
    div#content a.button.add > span > span{background:url(/bundles/admin/images/add.png) 0 4px no-repeat;}
    div#content a.button.down > span > span{background:url(bundles/admin/images/down.png) 0 4px no-repeat;}

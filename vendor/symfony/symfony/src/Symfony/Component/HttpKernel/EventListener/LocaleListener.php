@@ -1,13 +1,13 @@
 <?php
 
 /*
- * This file is part of the Symfony package.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+* This file is part of the Symfony package.
+*
+* (c) Fabien Potencier <fabien@symfony.com>
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*/
 
 namespace Symfony\Component\HttpKernel\EventListener;
 
@@ -19,10 +19,10 @@ use Symfony\Component\Routing\RequestContextAwareInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Initializes the locale based on the current request.
- *
- * @author Fabien Potencier <fabien@symfony.com>
- */
+* Initializes the locale based on the current request.
+*
+* @author Fabien Potencier <fabien@symfony.com>
+*/
 class LocaleListener implements EventSubscriberInterface
 {
     private $router;

@@ -10,17 +10,18 @@
 
 
     <div class="fieldset">	
-		<div class="legend">Recently Registered Users</div>
-		<table cellspacing="0" cellpadding="0" border="0" class="admin">
-			<thead>
-				<tr>
-			        <th width="20" align="center">Active</th>
-			        <th>Email</th>
-			        <th>Signed up</th>
-			        <th>Last sign in</th>
-			        <th width="200">Actions</th>
-				</tr>
-			</thead>
+		<div class="legend">{%trans%}dashboard.admins{%endtrans%}</div>
+                <table cellspacing="0" cellpadding="0" border="0" class="admin">
+                        <thead>
+                                <tr>
+                                <th width="20" align="center">{%trans%}dashboard.active{%endtrans%}</th>
+                                <th>{%trans%}dashboard.email{%endtrans%}</th>
+                                <th>{%trans%}dashboard.signedup{%endtrans%}</th>
+                                <th>{%trans%}dashboard.last_login{%endtrans%}</th>
+                                <th width="200">{%trans%}dashboard.actions{%endtrans%}</th>
+                                </tr>
+                        </thead>
+
 			<tbody>
 			{% for admin in admins %}
 				<tr>
@@ -31,8 +32,8 @@
 					<td>{{ admin.lastlogin | date("Y-m-d H:i:s") }}</td>
 					<td>2011-12-14 13:55:07</td>
 					<td>
-			           	<a class="button edit" href="/admin/admins/edit/{{admin.id}}"><span><span>Edit</span></span></a>
-						<a class="button delete" href="/admin/admins/delete/{{admin.id}}"><span><span>Delete</span></span></a>
+			           	<a class="button edit" href="/admin/admins/edit/{{admin.id}}"><span><span>{%trans%}dashboard.edit{%endtrans%}</span></span></a>
+					<a class="button delete" href="/admin/admins/delete/{{admin.id}}"><span><span>{%trans%}dashboard.delete{%endtrans%}</span></span></a>
 					</td> 
 			    </tr>
 			{% endfor %}
@@ -49,7 +50,7 @@
 	</div>
 	<div class="dashboard_right">
 		<div class="fieldset">
-			<div class="legend">Quick Links</div>
+			<div class="legend">{%trans%} dashboard.quick_links {%endtrans%}</div>
 			<ul class="large">
 			{{ knp_menu_render('admin_admins', {'template':'AdminBundle:Menu:knp_menu.html.twig'}) }}
 
