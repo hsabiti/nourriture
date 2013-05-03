@@ -34,7 +34,7 @@ fos_user_change_password:
 #    prefix:   /
 
 home:
-    resource: "@HomeBundle/Resources/config/routing.php"
+    resource: "@HomeBundle/Resources/config/routing.yml"
     prefix:   /{_locale}
     requirements:
        _locale: en|fr

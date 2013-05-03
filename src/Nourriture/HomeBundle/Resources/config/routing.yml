@@ -1,0 +1,4 @@
+home_homepage:
+    pattern:  /home
+    defaults: { _controller: HomeBundle:Home:index }
+

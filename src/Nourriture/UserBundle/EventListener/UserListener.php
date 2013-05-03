@@ -65,14 +65,16 @@ class UserListener{
 	   	 return;
 	   }
 		$user = $this->getUser();
+
+#var_dump($user->getProfile()->getLocale());
+#die(__FILE__.__LINE__);
+
 #var_dump($user);
 #var_dump($event->getRequest()->getSession());
-if(is_object($user) && $user->getLocale() !=null){
-$event->getRequest()->setLocale($user->getLocale());
-$event->getRequest()->getSession()->set('_locale', $user->getLocale());
-$event->getRequest()->attributes->set('_locale', $user->getLocale());
-		#var_dump($event->getRequest()->getSession()->get('_locale'));
-		#die(__FILE__.__LINE__);
+if(is_object($user) && $user->getProfile()->getLocale() !=null){
+$event->getRequest()->setLocale($user->getProfile()->getLocale());
+$event->getRequest()->getSession()->set('_locale', $user->getProfile()->getLocale());
+$event->getRequest()->attributes->set('_locale', $user->getProfile()->getLocale());
 }else{
 	if ('undefined' == $event->getRequest()->getLocale()) {
 		$event->getRequest()->setLocale($request->getPreferredLanguage());
