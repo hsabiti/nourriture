@@ -30,8 +30,8 @@
 			</span>
 		</div>	
 		<div id="navigation">
-			<input type="reset"  id="back" value="Back"/>		 
-			<input type="submit" id="next" value="Next"/>		 
+			<input type="reset"  id="back" value="{%trans%}users.back{%endtrans%}"/>		 
+			<input type="submit" id="next" value="{%trans%}users.next{%endtrans%}"/>		 
 		</div>
 		</form>
 		</div>
@@ -72,7 +72,9 @@ $(document).ready(function($){
 
 	$('#stepy').formwizard({
 		validationEnabled: true,
-		focusFirstInput: true
+		focusFirstInput: true,
+		textNext: '{%trans%}users.next{%endtrans%}',
+		textBack: '{%trans%}users.back{%endtrans%}'
 	});
 	//alert(('form#stepy').length)
 });

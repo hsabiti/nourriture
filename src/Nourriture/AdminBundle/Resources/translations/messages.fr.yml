@@ -3,10 +3,10 @@ dashboard:
      home: Maison
      products: Produits
      users:  Utilisateurs
+     user: Utilisateur
      admins: Les Administrateurs
      admins_short: Les Adminis
      list: Liste
-      
      list_products: Liste Des Produits
      add_product: Ajouter Un Produit
      list_users: Liste Des Utilisateurs
@@ -14,7 +14,7 @@ dashboard:
      list_admins: Liste Des Administrateurs
      add_admin: Ajouter Un Administrateur
      quick_links: Liens Rapides
-     at_a_glance: At a Glance:
+     at_a_glance: Regards sur l'
      registered: Inscrit
      recently_registered_users: Utilisateurs Récemment Inscrits
      active: Actif
@@ -25,11 +25,15 @@ dashboard:
      edit: Modifier
      delete: Supprimer
      logout: Déconnexion
+
 users:
     edit_profile: Modification d'un profil de l'utilisateur
     delete_profile: Supprimer le profil de l'utilisateur
     edit_user: Modifier l'utilisateur
     edit_admin: Modifier Un Administrateur
+    next: Suivant
+    back: Retour
+
 # Group
 group:
     edit:

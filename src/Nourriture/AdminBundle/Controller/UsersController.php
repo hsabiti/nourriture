@@ -92,8 +92,11 @@ class UsersController extends Controller
 
     public function addAction()
     {
+	
+	$registration = new Registration();
+	$form = $this->createForm(new RegistrationType(), $registration);
 
-        return $this->render('AdminBundle:Users:add.html.twig');
+        return $this->render('AdminBundle:Users:add.html.twig', array('form'=> $form->createView()));
 
     }
 }

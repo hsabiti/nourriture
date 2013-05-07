@@ -3,6 +3,7 @@ dashboard:
      home: Home
      products: Products
      users:  Users
+     user:  User
      admins: Administrators
      admins_short: Admins
      list:  List
@@ -33,7 +34,8 @@ users:
     delete_profile: Deleting User Profile
     edit_user: Edit User
     edit_admin: Edit Admin
-
+    next: Next
+    back: Back
 # Group
 group:
     edit:

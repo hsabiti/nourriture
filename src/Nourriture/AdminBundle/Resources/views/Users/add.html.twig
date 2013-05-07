@@ -3,6 +3,19 @@
 
 {% block admin_content %}
 
-Hellow 
+ <div class="fieldset">
+                <div class="legend">{% trans %} users.edit_profile {% endtrans %}</div>
+                <div class="errors">
+                  {{ form_errors(form) }}
+                </div>
+                <form  action="" method="POST" {{ form_enctype(form) }} id="stepy">
 
+			{{ form_widget(form.user) }}
+
+		 <div id="navigation">
+                        <input type="submit" id="next" value="{%trans%}user.register{%endtrans%}"/>
+                </div>
+
+		</from>
+ </div>
 {% endblock %}
