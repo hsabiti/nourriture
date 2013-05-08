@@ -32,4 +32,41 @@ class UserRepository extends EntityRepository
 
 
     }
+
+    public function findByFilter($array){
+
+	if(count($array)==0) return null;
+
+	#pagination
+	#$q->setFirstResult(25);
+	#$q->setMaxResults(25);		
+
+
+
+        $q =  $this->createQueryBuilder('u')
+                        ->select('u')
+                        ->leftJoin('u.profile', 'p')
+                        ->where('u.roles LIKE :role');
+
+			$n = 1;
+
+			foreach($array as $key=>$val){
+				if($n==1){
+				 $q->Where("u.$key LIKE '%$val%'");
+				}else{
+				  $q->orWhere("u.$key LIKE '%$val%'");
+				}	
+
+				$n++;
+
+			}
+                    
+		     $q ->orderBy('u.username','ASC')
+                        ->groupBy('u');
+
+	return  $q->getQuery()->getResult();
+
+
+    }
+
 }

@@ -8,7 +8,8 @@ use
     Nourriture\UserBundle\Entity\Profile,
     Nourriture\UserBundle\Entity\Address,
     Nourriture\UserBundle\Form\Model\Registration,
-    Nourriture\UserBundle\Form\Type\RegistrationType;
+    Nourriture\UserBundle\Form\Type\RegistrationType,
+    Nourriture\UserBundle\Form\Type\UserSearchType;
 
 
 class UsersController extends Controller
@@ -16,11 +17,28 @@ class UsersController extends Controller
     
     public function listAction()
     {
+	
+	 	$request = $this->getRequest();
 
-	 $users = $this->getDoctrine()
+		//$searchForm = $this->createForm(new UserSearchType());
+		$filter = null;
+                if($request->getMethod()=='POST'){
+			$filter = $request->request->get('filter');
+			#print_r($filter);
+			//print_r($_POST);
+			//die(__FILE__.__LINE__);
+		}
+	
+	 if($filter == null){
+	 	$users = $this->getDoctrine()
                         ->getRepository('UserBundle:User')
                         ->findByRole('');
-        return $this->render('AdminBundle:Users:list.html.twig', array('users' => $users));
+	}else{
+		$users = $this->getDoctrine()
+			->getRepository('UserBundle:user')
+			->findByFilter(array('email'=>$filter,'username'=>$filter));
+	}
+        return $this->render('AdminBundle:Users:list.html.twig', array('users' => $users, 'filter'=>$filter));
     }
 
     public function editAction($id)
