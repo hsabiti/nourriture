@@ -1,0 +1,123 @@
+<?php
+
+namespace Nourriture\UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * PostcodesAddress
+ *
+ * @ORM\Table(name="postcodes_address")
+ * @ORM\Entity
+ */
+class PostcodesAddress
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="postcode", type="string", length=16, nullable=false)
+     */
+    private $postcode;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="urn", type="integer", nullable=false)
+     */
+    private $urn;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="organisation", type="string", length=60, nullable=false)
+     */
+    private $organisation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="department", type="string", length=60, nullable=false)
+     */
+    private $department;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="po_box", type="string", length=13, nullable=false)
+     */
+    private $poBox;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sub_building", type="string", length=30, nullable=false)
+     */
+    private $subBuilding;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="building_name", type="string", length=50, nullable=false)
+     */
+    private $buildingName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="building_number", type="string", length=10, nullable=false)
+     */
+    private $buildingNumber;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dependent_street", type="string", length=60, nullable=false)
+     */
+    private $dependentStreet;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="street", type="string", length=60, nullable=false)
+     */
+    private $street;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="double_dependent_locality", type="string", length=35, nullable=false)
+     */
+    private $doubleDependentLocality;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dependent_locality", type="string", length=35, nullable=false)
+     */
+    private $dependentLocality;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="town", type="string", length=30, nullable=false)
+     */
+    private $town;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="county", type="string", length=30, nullable=false)
+     */
+    private $county;
+
+
+}
