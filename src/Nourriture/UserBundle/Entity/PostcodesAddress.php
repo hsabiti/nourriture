@@ -1,14 +1,14 @@
 <?php
-
 namespace Nourriture\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\SecurityExtraBundle\Security\Util\String;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * PostcodesAddress
- *
+ * @ORM\Entity(repositoryClass="Nourriture\UserBundle\Entity\PostcodesAddressRepository")
  * @ORM\Table(name="postcodes_address")
- * @ORM\Entity
  */
 class PostcodesAddress
 {

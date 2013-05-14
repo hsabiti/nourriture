@@ -2,3 +2,7 @@
 #    pattern:  /admin
 #    defaults: { _controller: AdminBundle:Admin:index }
 
+user_register:
+    pattern:  /register
+    defaults: { _controller: UserBundle:User:register }
+

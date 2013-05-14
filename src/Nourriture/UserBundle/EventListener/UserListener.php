@@ -66,12 +66,12 @@ class UserListener{
 	   }
 		$user = $this->getUser();
 
-#var_dump($user->getProfile()->getLocale());
+#var_dump($event->getRequest()->getLocale());
 #die(__FILE__.__LINE__);
 
 #var_dump($user);
 #var_dump($event->getRequest()->getSession());
-if(is_object($user) && $user->getProfile()->getLocale() !=null){
+if(is_object($user) && is_object($user->getProfile()) && $user->getProfile()->getLocale() !=null){
 $event->getRequest()->setLocale($user->getProfile()->getLocale());
 $event->getRequest()->getSession()->set('_locale', $user->getProfile()->getLocale());
 $event->getRequest()->attributes->set('_locale', $user->getProfile()->getLocale());

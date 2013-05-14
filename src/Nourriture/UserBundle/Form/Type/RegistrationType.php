@@ -1,4 +1,5 @@
 <?php
+# Used for Admins to edit Users
 namespace Nourriture\UserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
