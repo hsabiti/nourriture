@@ -44,7 +44,7 @@ class  ProfileType extends AbstractType{
 
 	public function getName(){
 		
-		return 'nourriture_bundle_user_profile';
+		return 'nourriture_userbundle_profile';
 
 	}
 	

@@ -55,8 +55,20 @@ class UsersController extends Controller
 
 		$registration = new Registration();
 		$registration->setUser($user);
-		$registration->setProfile($user->getProfile());
-		$registration->setAddress($user->getAddress());
+		if(null===$user->getProfile()){
+			$profile =  new Profile();
+			$user->setProfile($profile);	
+		}else{
+			$profile = $user->getProfile();
+		}
+		if(null===$user->getAddress()){
+			$address =  new Address();
+			$user->setAddress($address);
+		}else{
+			$address = $user->getAddress();
+		}
+		$registration->setProfile($profile);
+		$registration->setAddress($address);
 
 		$form = $this->createForm(new RegistrationType(), $registration);
 
@@ -68,6 +80,8 @@ class UsersController extends Controller
 				
 			if($form->isValid()){
 				$em = $this->getDoctrine()->getEntityManager();
+
+				/* 
 				$data = $request->request->get('nourriture_userbundle_registration');
 				if(null === $user->getProfile()){
 					$profile = new Profile();
@@ -85,7 +99,8 @@ class UsersController extends Controller
 					$address->SetFirstLine($addr->firstline);
 					$address->SetPostCode($addr->postcode);
 					$user->setAddress($address);
-				}
+				}*/
+
 
 				$user->getProfile()->setUser($user);
 				$user->getAddress()->setUser($user);

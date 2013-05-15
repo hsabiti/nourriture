@@ -28,22 +28,12 @@ class UserController extends Controller
 		
 
 
-		#$registration = new Registration();
-		#$user = new User();
-                #$registration->setUser($user);
-		#$profile = new Profile();
-                #$registration->setProfile($profile);
-		#$address = new Address();	
-                #$registration->setAddress($address);
-
-		#$form = $this->createForm(new RegistrationFormType(), $registration);
 		$form = $this->createForm(new RegistrationFormType(new User()));
 	
 		$request = $this->getRequest();
-		var_dump($request->attributes->get('_locale'));
 
 		$userManager = $this->get('fos_user.user_manager');
-		 $dispatcher = $this->get('event_dispatcher');
+		$dispatcher = $this->get('event_dispatcher');
 		$user = $userManager->createUser();
 	        $user->setEnabled(true);
 		$form->setData($user);
@@ -52,11 +42,9 @@ class UserController extends Controller
 
                         $form->bindRequest($request);
                                 
-                        if($form->isValid()){
-				#$data = $request->request->get('nourriture_user_registration');
-				#$user = User();
-				#$user->set
-				#var_dump($data);
+            if($form->isValid()){
+
+				$data = $request->request->get('nourriture_userbundle_registration');
 			
 				$event = new FormEvent($form, $request);
 		                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
@@ -64,12 +52,11 @@ class UserController extends Controller
 				if (null === $response = $event->getResponse()) {
                 		    $url = $this->container->get('router')->generate('home_homepage');
 		                    $response = new RedirectResponse($url);
-                		}
+                }
 
-		                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+		        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
 
                 return $response;
-				die(__FILE__.__LINE__);
 			}
 		}
 

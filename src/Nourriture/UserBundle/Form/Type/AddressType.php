@@ -24,7 +24,7 @@ class  AddressType extends AbstractType{
 
 	public function getName(){
 		
-		return 'nourriture_bundle_user_address';
+		return 'nourriture_userbundle_address';
 
 	}
 	

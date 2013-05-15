@@ -31,7 +31,7 @@ class  RegistrationFormType extends BaseType{
 
 	public function getName(){
 		
-		return 'nourriture_user_registration';
+		return 'nourriture_userbundle_registration';
 
 	}
 	

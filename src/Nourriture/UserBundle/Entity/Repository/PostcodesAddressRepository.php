@@ -1,6 +1,6 @@
 <?php
 
-namespace Nourriture\UserBundle\Entity;
+namespace Nourriture\UserBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
