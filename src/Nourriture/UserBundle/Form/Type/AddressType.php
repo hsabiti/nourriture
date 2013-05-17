@@ -20,12 +20,13 @@ class  AddressType extends AbstractType{
 		//add our custom fields
 
 		$builder->add('postcode', 'text', array('attr' => array('class'=>'postcode')))
-			->add('firstline', 'country', array('preferred_choices'=>$this->container->getParameter('nourriture_countries'),'attr'=>array('class'=>'firstline')))
+			->add('firstline', 'text', array(/*'empty_value'=>'kk',*/ 'attr'=>array('class'=>'firstline')))
 			->add('secondline', 'text', array('attr'=>array('class'=>'secondline')))
-			->add('thirdline', 'text', array('attr'=>array('class'=>'thirdline')))
+			->add('thirdline', 'text', array('required'=>false,'attr'=>array('class'=>'thirdline')))
 			->add('town', 'text', array('attr'=>array('class'=>'town')))
-			->add('state', 'text', array('attr'=>array('class'=>'state')))
-			->add('country', 'text', array('attr'=>array('class'=>'country')));
+			->add('state', 'text', array('required'=>false,'attr'=>array('class'=>'state')))
+			->add('country', 'country', array('preferred_choices'=>$this->container->getParameter('nourriture_countries'),'attr'=>array('class'=>'country')));
+			
 
 
 	}

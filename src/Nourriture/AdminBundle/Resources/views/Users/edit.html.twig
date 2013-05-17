@@ -80,6 +80,7 @@ $(document).ready(function($){
 		textBack: '{%trans%}users.back{%endtrans%}'
 	});
 	$('.find_address').click(function(){
+		$('.firstline_dummy').remove();	
 		 var data = {};
                 data.method	='getAddressByPostCode';
 		data.postcode	= $('input.postcode').val();
@@ -91,17 +92,30 @@ $(document).ready(function($){
                                 //alert(response);
                                 response = $.parseJSON(response);
                                 var address = response.address;
-                                //alert(address.address.street);
-                                //alert(address.street);
-                                //alert(response.options)
+				for(var i in address){
+				  $('.'+i).val(address[i]);
+				}
+
 
                                 //dynamically create options based on the response, if count is greater than 1, else populate
                                 if(response.options.length > 1){
-                                   $('.firstline').append($('<option/>',{val:'',text:'{%trans%}form.select_an_address{%endtrans%}'}));
+                                   //create dummy select
+				   var select = $('<select/>',{class:'firstline_dummy'}).append($('<option/>',{selected:'selected',val:'',text:'{%trans%}form.select_an_address{%endtrans%}'}))
+				   $(select).change(function(){
+					$('.firstline').val($(this).val());
+				   }).blur(function(){
+					$(this).hide('slow');
+				   })
+				   //hide real input
                                    for(var i in response.options){
                                    {
-                                	   	$('.firstline').append($('<option/>',{val:response.options[i],text:response.options[i]}));
+                                	  //$('.firstline').append($('<option/>',{val:response.options[i],text:response.options[i]}));
+                                	  $('<option/>',{val:response.options[i],text:response.options[i]}).appendTo(select);
                                    }
+				  	
+				   $($('<div/>').append(select)).insertBefore('.firstline');	
+				  // $('.firstline').hide('slow');
+
                                  }
                                 }else{
                                    $('.firstline').val($response.options.join(","));

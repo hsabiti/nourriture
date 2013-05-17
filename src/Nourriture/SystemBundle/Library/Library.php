@@ -21,8 +21,11 @@ class Library{
 			#$_addresses['firstline'] = $firstline;
 		}
 		$address = $addresses[0];
-		$_address['street']	= ucfirst(strtolower($address->getStreet()));
+		$_address['secondline']	= ucfirst(strtolower($address->getStreet()));
 		$_address['town'] 	= ucfirst(strtolower($address->getTown()));
+		$_address['state'] 	= ucfirst(strtolower($address->getCounty()));
+		$_address['country'] 	= 'GB';
+		
 		$_address = array('address'=>$_address, 'options'=>$options);
 #print_r($_address);
 #die(__FILE__.__LINE__);
