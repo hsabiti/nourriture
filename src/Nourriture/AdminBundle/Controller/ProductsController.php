@@ -1,15 +1,15 @@
 <?php
-
 namespace Nourriture\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller,
-    Nourriture\UserBundle\Entity\PostcodesAddress;
+    Nourriture\UserBundle\Entity\PostcodesAddress,
+    Doctrine\Common\Util\Debug;	    	
 
 class ProductsController extends Controller
 {
     public function listAction()
     {
-	$postcode = 'SW2 1SA';
+	$postcode = 'NG31 9GB';
 	$postcode = preg_replace('/\s+/','',$postcode);
 
 	$postcodes = $this->getDoctrine()
@@ -17,6 +17,7 @@ class ProductsController extends Controller
 			->findByPostcode($postcode);
 
 	var_dump($postcodes);
+	#Debug::dump($postcodes);
 	die($postcode .__FILE__.__LINE__);
 
 	$products = array('name'=>'Dummy Prouducst place holder ' .__FILE__.__LINE__  );

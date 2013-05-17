@@ -4,6 +4,8 @@
 {% block admin_content %}
 
 <div class="dashboard_container">
+{# <select  class="wawa" style="border:solid 1px red;height:30px;width:200px"> #}
+</select>
 
 	<div class="dashboard_left">
 	
@@ -26,6 +28,7 @@
 
 			<span class="step" id="address">
 				<legend>{% trans %} form.address {% endtrans %} </legend>
+			<input class="find_address" type="button" value="{%trans%}form.find_address{%endtrans%}" style="position:relative; top:42px; left:215px; height:18px" />
 			{{ form_widget(form.address) }} 
 			</span>
 		</div>	
@@ -75,6 +78,45 @@ $(document).ready(function($){
 		focusFirstInput: true,
 		textNext: '{%trans%}users.next{%endtrans%}',
 		textBack: '{%trans%}users.back{%endtrans%}'
+	});
+	$('.find_address').click(function(){
+		 var data = {};
+                data.method	='getAddressByPostCode';
+		data.postcode	= $('input.postcode').val();
+                $.ajax({
+                        url                     :       '{{path('system_ajax')}}',
+                        type            : 'POST',
+                        data            : data,
+                        success         : function(response){
+                                //alert(response);
+                                response = $.parseJSON(response);
+                                var address = response.address;
+                                //alert(address.address.street);
+                                //alert(address.street);
+                                //alert(response.options)
+
+                                //dynamically create options based on the response, if count is greater than 1, else populate
+                                if(response.options.length > 1){
+                                   $('.firstline').append($('<option/>',{val:'',text:'{%trans%}form.select_an_address{%endtrans%}'}));
+                                   for(var i in response.options){
+                                   {
+                                	   	$('.firstline').append($('<option/>',{val:response.options[i],text:response.options[i]}));
+                                   }
+                                 }
+                                }else{
+                                   $('.firstline').val($response.options.join(","));
+                                }
+                                //console.log(options);
+                                //$('.wawa').html(options);
+
+                        },
+                        error           : function(response,error){
+                                //alert('Failed to save provider info');
+				alert(response.responseText);
+                                return false;
+                        }
+                });
+
 	});
 	//alert(('form#stepy').length)
 });

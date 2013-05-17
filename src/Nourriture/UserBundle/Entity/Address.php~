@@ -25,24 +25,48 @@ use Symfony\Component\Validator\Constraints as Assert;
 	private $id;
  	
 	/**
- 	 * @var integer $house_no
- 	 * @ORM\Column(type="string", length=25)
+ 	 * @var string $firstline
+ 	 * @ORM\Column(type="string", length=100)
  	 */
- 	private $house_no;
+ 	private $firstline;
+
+	/**
+         * @var string $secondline
+         * @ORM\Column(type="string", length=100)
+         */
+        private $secondline;
+
+	/**
+         * @var string $thirdline
+         * @ORM\Column(type="string", length=100)
+         */
+        private $thirdline;
+
+	/**
+         * @var string $town
+         * @ORM\Column(type="string", length=100)
+         */
+        private $town;
+
+	/**
+         * @var string $state
+         * @ORM\Column(type="string", length=100)
+         */
+        private $state;
+
+	/**
+         * @var string $country
+         * @ORM\Column(type="string", length=100)
+         */
+        private $country;
+
 
 	/**
          * @ORM\OneToOne(targetEntity="Nourriture\UserBundle\Entity\User", inversedBy="address")
          * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
          */
 
-        private $user;
-
- 	/**
- 	 * @var integer $firstline
- 	 * @ORM\Column(type="string", length=25)
- 	 */
- 	private $firstline;
- 	
+        private $user; 	
  	
  	/**
 	 * @var string $postcode

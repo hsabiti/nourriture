@@ -70,7 +70,9 @@ class UsersController extends Controller
 		$registration->setProfile($profile);
 		$registration->setAddress($address);
 
-		$form = $this->createForm(new RegistrationType(), $registration);
+		#print_r($this->container->getParameter('nourriture_countries'));die(__FILE__.__LINE__);
+		$form = $this->createForm(new RegistrationType($this->container), $registration);
+		#$form = $this->createForm($this->get('nourriturea.user.registration.form.type'), $registration);
 
                 $request = $this->getRequest();
 

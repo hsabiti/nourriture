@@ -5,35 +5,38 @@ use Symfony\Component\Form\Extension\Core\Type\LanguageType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface as Container;
 
 class  ProfileType extends AbstractType{
 	
-	public $choices = array();
+	private $container;
+
+	public function __construct(Container $container){
+                $this->container = $container;
+        }
+
 
 	public function buildForm(FormBuilderInterface $builder, array $options){
 
-#$this->container->getParameter('roger.admin.languages', null);		
 
 #		print_r(\Symfony\Component\Locale\Locale::getDisplayLanguages(\Symfony\Component\Locale\Locale::getDefault()));
 #die(__FILE__ . __LINE__);
 
 		//add our custom fields
-		#$builder->remove('current_password');
-		#$builder->add('locale', new LanguageType());
 
-			#$langs = $options['languages'];
-		        #$langs = array_combine($langs, $langs);
-
-			$langs =  array('fr_FR'=>'fr_FR', 'en_GB'=>'en_GB');
+		/*	$langs =  array('fr_FR'=>'fr_FR', 'en_GB'=>'en_GB');
 		        foreach ($langs as $key=> $lang) {
             			$langs[$key] = \Locale::getDisplayName($lang);
         		}
 		
-		 $builder->add('locale', 'choice', array(
-            'choices' => $langs,
-            'required' => false,
-        ));
-		$builder->add('firstname')
+			 $builder->add('locale', 'choice', array(
+	            	'choices' => $langs,
+            		'required' => false,
+        	));*/
+		
+#print_r();die(__FILE__.__LINE__);
+		$builder->add('locale','language', array('preferred_choices'=>$this->container->getParameter('nourriture_preferred_locales')))
+			->add('firstname')
 			->add('lastname')
 			->add('telephone','text',array('required'=>false))
 			->add('mobile');

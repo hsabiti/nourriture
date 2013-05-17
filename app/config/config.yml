@@ -2,8 +2,6 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
 
-#nourriture_core:
-    #supported_locales: ['en_GB','fr_FR']
 
 
 knp_menu:

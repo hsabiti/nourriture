@@ -17,7 +17,7 @@ class HomeController extends Controller
 
 
 	$user =	$this->get('security.context')->getToken()->getUser();
-
+	if(is_object($user))
 	$name .= "  " . $user->getEmail() . " @ " . get_class($this);
 
 	#var_dump($request->getSession()->get('_locale'));

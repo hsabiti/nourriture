@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Nourriture\HomeBundle\HomeBundle(),
             new Nourriture\UserBundle\UserBundle(),
             new Nourriture\AdminBundle\AdminBundle(),
+            new Nourriture\SystemBundle\SystemBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

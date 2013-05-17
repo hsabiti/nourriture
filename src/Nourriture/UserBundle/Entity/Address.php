@@ -25,24 +25,48 @@ use Symfony\Component\Validator\Constraints as Assert;
 	private $id;
  	
 	/**
- 	 * @var integer $house_no
- 	 * @ORM\Column(type="string", length=25)
+ 	 * @var string $firstline
+ 	 * @ORM\Column(type="string", length=100)
  	 */
- 	private $house_no;
+ 	private $firstline;
+
+	/**
+         * @var string $secondline
+         * @ORM\Column(type="string", length=100)
+         */
+        private $secondline;
+
+	/**
+         * @var string $thirdline
+         * @ORM\Column(type="string", length=100, nullable=true)
+         */
+        private $thirdline;
+
+	/**
+         * @var string $town
+         * @ORM\Column(type="string", length=100, nullable=true)
+         */
+        private $town;
+
+	/**
+         * @var string $state
+         * @ORM\Column(type="string", length=100, nullable=true)
+         */
+        private $state;
+
+	/**
+         * @var string $country
+         * @ORM\Column(type="string", length=100)
+         */
+        private $country;
+
 
 	/**
          * @ORM\OneToOne(targetEntity="Nourriture\UserBundle\Entity\User", inversedBy="address")
          * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
          */
 
-        private $user;
-
- 	/**
- 	 * @var integer $firstline
- 	 * @ORM\Column(type="string", length=25)
- 	 */
- 	private $firstline;
- 	
+        private $user; 	
  	
  	/**
 	 * @var string $postcode
@@ -64,29 +88,6 @@ use Symfony\Component\Validator\Constraints as Assert;
     }
 
     
-
-    /**
-     * Set house_no
-     *
-     * @param string $houseNo
-     * @return Address
-     */
-    public function setHouseNo($houseNo)
-    {
-        $this->house_no = $houseNo;
-    
-        return $this;
-    }
-
-    /**
-     * Get house_no
-     *
-     * @return string 
-     */
-    public function getHouseNo()
-    {
-        return $this->house_no;
-    }
 
     /**
      * Set firstline
@@ -155,5 +156,120 @@ use Symfony\Component\Validator\Constraints as Assert;
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set secondline
+     *
+     * @param string $secondline
+     * @return Address
+     */
+    public function setSecondline($secondline)
+    {
+        $this->secondline = $secondline;
+    
+        return $this;
+    }
+
+    /**
+     * Get secondline
+     *
+     * @return string 
+     */
+    public function getSecondline()
+    {
+        return $this->secondline;
+    }
+
+    /**
+     * Set thirdline
+     *
+     * @param string $thirdline
+     * @return Address
+     */
+    public function setThirdline($thirdline)
+    {
+        $this->thirdline = $thirdline;
+    
+        return $this;
+    }
+
+    /**
+     * Get thirdline
+     *
+     * @return string 
+     */
+    public function getThirdline()
+    {
+        return $this->thirdline;
+    }
+
+    /**
+     * Set town
+     *
+     * @param string $town
+     * @return Address
+     */
+    public function setTown($town)
+    {
+        $this->town = $town;
+    
+        return $this;
+    }
+
+    /**
+     * Get town
+     *
+     * @return string 
+     */
+    public function getTown()
+    {
+        return $this->town;
+    }
+
+    /**
+     * Set state
+     *
+     * @param string $state
+     * @return Address
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+    
+        return $this;
+    }
+
+    /**
+     * Get state
+     *
+     * @return string 
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     * @return Address
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string 
+     */
+    public function getCountry()
+    {
+        return $this->country;
     }
 }

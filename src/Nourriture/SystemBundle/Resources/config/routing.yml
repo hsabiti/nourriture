@@ -1,0 +1,9 @@
+system_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: SystemBundle:Default:index }
+
+system_ajax:
+    pattern:  /ajax/
+    defaults: { _controller: SystemBundle:Ajax:index }
+    requirements:
+               _method: POST|DELETE|PUT

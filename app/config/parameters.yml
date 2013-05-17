@@ -13,3 +13,13 @@ parameters:
 
     locale:            en
     secret:            6k?;rqpKhIi6&2x:&IP*,I.UxecEu$ YF/skS1+1*-sCa6SQ,R6[`#Fj-`8}u|I4')
+
+#NOURRITURE GLOBAL CONFIGS
+    #supported locales
+    nourriture_locales: en|fr 
+    
+    #supported countries in forms etc
+    nourriture_countries: [GB,FR,DE,PL] 
+
+    #used for form locales	
+    nourriture_preferred_locales: [en_GB,fr] 
