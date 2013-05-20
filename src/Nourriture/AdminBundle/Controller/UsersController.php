@@ -129,7 +129,7 @@ class UsersController extends Controller
     {
 	
 	$registration = new Registration();
-	$form = $this->createForm(new RegistrationType(), $registration);
+	$form = $this->createForm(new RegistrationType($this->container), $registration);
 
         return $this->render('AdminBundle:Users:add.html.twig', array('form'=> $form->createView()));
 
