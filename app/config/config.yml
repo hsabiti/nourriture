@@ -93,3 +93,15 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+sylius_assortment:
+    driver: doctrine/orm # Configure the doctrine orm driver used in documentation.
+    classes:
+        product:
+            model: Nourriture\SystemBundle\Entity\Product # Your product entity.
+
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable: true
+            timestampable: true

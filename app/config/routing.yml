@@ -1,3 +1,10 @@
+sylius_assortment:
+    resource: @SyliusAssortmentBundle/Resources/config/routing.yml
+    #prefix: /assortment
+    prefix: /{_locale}
+    requirements:
+       _locale: %nourriture_locales%
+
 system:
     resource: "@SystemBundle/Resources/config/routing.yml"
     prefix:   /
