@@ -20,6 +20,8 @@ parameters:
     
     #supported countries in forms etc
     nourriture_countries: [GB,FR,DE,PL] 
+    
+    nourriture_weights: [50,100,200,500] 
 
     #used for form locales	
     nourriture_preferred_locales: [en_GB,fr] 

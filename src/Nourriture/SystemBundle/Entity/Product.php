@@ -2,9 +2,8 @@
 namespace Nourriture\SystemBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use JMS\SecurityExtraBundle\Security\Util\String;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
-use FOS\UserBundle\Entity\User as BaseUser;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -28,18 +27,30 @@ class Product
 	
 	protected $name;
 	
+	
 	/**
 	 * @var String
-	 * @ORM\Column(type="string", length=255, nullable=false)
+	 * @Gedmo\Slug(fields={"name","summary"})
+	 * @ORM\Column(type="string", length=128, unique=true)
 	 */
-	
 	protected $slug;
 
 	/**
+	 * @var string
+	 * @ORM\Column(type="string", length=120, nullable=true)
+	 */
+	protected $summary;
+
+        /**
+	 * @var interger
+	 * @ORM\Column(type="decimal", length=5, nullable=false)
+	 */
+	protected $netweight;
+	
+	/**
 	 * @var String
 	 * @ORM\Column(type="string", length=255, nullable=false)
 	 */
-	
 	protected $description;
 	
 	
@@ -70,11 +81,11 @@ class Product
 
 	/**
 	 * @var String
-	 * @ORM\Column(type="datetime", length=25, nullable=false)
+	 * @ORM\Column(type="datetime", length=25, nullable=true)
 	 */
 	
 
-	protected $deleted;
+	protected $enabled;
 
 
     /**
@@ -269,5 +280,74 @@ class Product
     public function getDeleted()
     {
         return $this->deleted;
+    }
+
+    /**
+     * Set netweight
+     *
+     * @param float $netweight
+     * @return Product
+     */
+    public function setNetweight($netweight)
+    {
+        $this->netweight = $netweight;
+
+        return $this;
+    }
+
+    /**
+     * Get netweight
+     *
+     * @return float 
+     */
+    public function getNetweight()
+    {
+        return $this->netweight;
+    }
+
+    /**
+     * Set summary
+     *
+     * @param string $summary
+     * @return Product
+     */
+    public function setSummary($summary)
+    {
+        $this->summary = $summary;
+
+        return $this;
+    }
+
+    /**
+     * Get summary
+     *
+     * @return string 
+     */
+    public function getSummary()
+    {
+        return $this->summary;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param \DateTime $enabled
+     * @return Product
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return \DateTime 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
     }
 }

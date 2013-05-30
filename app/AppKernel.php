@@ -10,8 +10,6 @@ class AppKernel extends Kernel
         $bundles = array(
 	    new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle($this),
-            new Sylius\Bundle\ResourceBundle\SyliusResourceBundle(),
-            new Sylius\Bundle\AssortmentBundle\SyliusAssortmentBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 

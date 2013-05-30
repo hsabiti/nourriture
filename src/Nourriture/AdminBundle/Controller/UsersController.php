@@ -110,7 +110,7 @@ class UsersController extends Controller
 
 				$em->flush();
 				#print_r($_POST);die(__FILE__.__LINE__);
-				
+				$this->get('session')->getFlashbag()->add('notice', $this->get('translator')->trans('user.edit_success'));
 				return $this->redirect($this->generateUrl('admin_users_list'));
 			}			
 		}

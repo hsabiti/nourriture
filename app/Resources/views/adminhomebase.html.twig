@@ -23,12 +23,21 @@
 		<div id="admin-nav">
 		  {{ knp_menu_render('admin_main', {'template':'AdminBundle:Menu:knp_menu.html.twig'}) }}
 		</div>
+			
+		{# Notices #}
+		{% if app.session.hasFlash('notice')%}
+		<div class="notice">
+		 {% for flashMessage in app.session.flashbag.get('notice') %}
+		  {{ flashMessage}}
+		 {%endfor%}
+		</div>
+                {% endif %}
+
 		<div id="content">
 			{% block admin_content %} {% endblock %}
 		</div>
 
 	</div>
-
 
     	{% block top_nav%}
     		
