@@ -25,3 +25,6 @@ parameters:
 
     #used for form locales	
     nourriture_preferred_locales: [en_GB,fr] 
+   
+    #thumbs will also be in here
+    nourriture_assets_path: /assets/images/products

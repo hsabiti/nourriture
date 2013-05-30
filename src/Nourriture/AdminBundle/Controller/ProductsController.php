@@ -46,21 +46,51 @@ class ProductsController extends Controller
 		
 			if($form->isValid()){
 				$em = $this->getDoctrine()->getEntityManager();
-				
-				//$user->getProfile()->setUser($user);
-				//$user->getAddress()->setUser($user);
 				$em->persist($product);
 		
 				$em->flush();
-				#print_r($_POST);die(__FILE__.__LINE__);
 				$this->get('session')->getFlashbag()->add('notice', $this->get('translator')->trans('product.add_success'));
 				return $this->redirect($this->generateUrl('admin_products_list'));
 			}
 		}
 
         return $this->render('AdminBundle:Products:add.html.twig', array('form'=> $form->createView()));
-	//return $this->render('AdminBundle:Products:add.html.twig');
-    }
+	}
   
+	public function editAction($id)
+	{
+	
+		$product = $this->getDoctrine()
+		->getRepository('SystemBundle:Product')
+		->findOneBy(array('id'=>$id));
+	
+	
+		$form = $this->createForm(new ProductType($this->container), $product);
+	
+		$request = $this->getRequest();
+	
+		if($request->getMethod()=='POST'){
+	
+			$form->bindRequest($request);
+	
+			if($form->isValid()){
+				//handle imageupload
+				$product->setUploadPath($this->get('kernel')->getRootDir() . "/../web" . $this->container->getParameter('nourriture_assets_path'));
+				
+				$product->upload();
+				
+				$em = $this->getDoctrine()->getEntityManager();
+	
+				$em->persist($product);
+	
+				$em->flush();
+				$this->get('session')->getFlashbag()->add('notice', $this->get('translator')->trans('product.edit_product_success'));
+				return $this->redirect($this->generateUrl('admin_products_list'));
+			}
+		}
+	
+		return $this->render('AdminBundle:Products:edit.html.twig', array('form'=>$form->createView()));
+	
+	}
 	
 }

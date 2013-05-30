@@ -81,7 +81,14 @@ class Product
 
 	/**
 	 * @var String
-	 * @ORM\Column(type="datetime", length=25, nullable=true)
+	 * @ORM\Column(type="string", length=100, nullable=true)
+	 */
+
+	protected $image;
+
+	/**
+	 * @var String
+	 * @ORM\Column(type="boolean", length=1, nullable=true)
 	 */
 	
 
@@ -303,5 +310,51 @@ class Product
     public function getNetweight()
     {
         return $this->netweight;
+    }
+
+    /**
+     * Set summary
+     *
+     * @param string $summary
+     * @return Product
+     */
+    public function setSummary($summary)
+    {
+        $this->summary = $summary;
+
+        return $this;
+    }
+
+    /**
+     * Get summary
+     *
+     * @return string 
+     */
+    public function getSummary()
+    {
+        return $this->summary;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param \DateTime $enabled
+     * @return Product
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return \DateTime 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
     }
 }

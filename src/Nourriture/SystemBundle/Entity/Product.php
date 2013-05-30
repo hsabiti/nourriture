@@ -81,11 +81,22 @@ class Product
 
 	/**
 	 * @var String
-	 * @ORM\Column(type="datetime", length=25, nullable=true)
+	 * @ORM\Column(type="string", length=100, nullable=true)
+	 */
+
+	protected $image;
+
+	/**
+	 * @var String
+	 * @ORM\Column(type="boolean", length=1, nullable=true)
 	 */
 	
 
 	protected $enabled;
+
+
+	protected $uploadPath;
+
 
 
     /**
@@ -350,4 +361,43 @@ class Product
     {
         return $this->enabled;
     }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Product
+     */
+    public function setImage($image)
+    {
+       
+	if(null !== $image)
+	 $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+    public function upload(){
+	if(null===$this->getImage() || !is_object($this->getImage())) return;
+
+	//we resize and create thumbs here
+	//var_dump($this->getImage());
+	$this->getImage()->move($this->getUploadPath(),$this->getImage()->getClientOriginalName());
+    }
+    public function setUploadPath($path){
+	$this->uploadPath = $path;
+    }
+    public function getUploadPath(){
+	return $this->uploadPath;
+    }
+    
 }

@@ -1,0 +1,21 @@
+{% extends '::adminhomebase.html.twig' %}
+
+
+{% block admin_content %}
+
+ <div class="fieldset">
+                <div class="legend">{% trans %} products.add_product {% endtrans %}</div>
+                <div class="errors">
+                  {{ form_errors(form) }}
+                </div>
+                <form  action="" method="POST" {{ form_enctype(form) }} id="stepy">
+
+			{{ form_widget(form) }}
+
+		 <div id="navigation">
+                        <input type="submit" id="next" value="{%trans%}product.update{%endtrans%}"/>
+                </div>
+
+		</from>
+ </div>
+{% endblock %}
