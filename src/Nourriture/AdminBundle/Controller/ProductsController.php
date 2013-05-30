@@ -7,26 +7,32 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller,
 
 class ProductsController extends Controller
 {
-    public function listAction()
+	public function listAction()
     {
-	$postcode = 'NG31 9GB';
-	$postcode = preg_replace('/\s+/','',$postcode);
+	
+	 	$request = $this->getRequest();
 
-	$postcodes = $this->getDoctrine()
-                        ->getRepository('UserBundle:PostcodesAddress')
-			->findByPostcode($postcode);
-
-	var_dump($postcodes);
-	#Debug::dump($postcodes);
-	die($postcode .__FILE__.__LINE__);
-
-	$products = array('name'=>'Dummy Prouducst place holder ' .__FILE__.__LINE__  );
-        return $this->render('AdminBundle:Products:list.html.twig', array('products' => $products));
+		$filter = null;
+                if($request->getMethod()=='POST'){
+			$filter = $request->request->get('filter');
+		}
+	
+	 if($filter == null){
+	 	$products = $this->getDoctrine()
+                        ->getRepository('SystemBundle:Product')
+                        ->findAll();
+	}else{
+		$products = $this->getDoctrine()
+			->getRepository('SystemBundle:Product')
+			->findByFilter(array('name'=>$filter,'description'=>$filter));
+	}
+        return $this->render('AdminBundle:Products:list.html.twig', array('products' => $products, 'filter'=>$filter));
     }
 
     public function addAction()
     {
         return $this->render('AdminBundle:Products:add.html.twig');
     }
+  
 	
 }
