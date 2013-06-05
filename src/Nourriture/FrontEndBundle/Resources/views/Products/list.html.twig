@@ -2,7 +2,46 @@
 
 
 {% block body %}
-products go here
+	<div style="border:solid 1px #ddd;height:30px;margin-bottom:10px;">sortby /prods per page</div>
+
+	<div style="border: solid 1px #000;height:80%">
+	       {% for product in products %}
+		<div style="border:solid 1px yellow;height:235px;width:195px;float:left">
+			<div style="text-align:center; font-weight:bold"> 
+				<img class="zoom" zoom="{{product.image}}" src="/assets/images/products/thumbs/{{ product.image }}" title="{{product.image}}" />
+			</div>
+
+			<div style="text-align:center; font-weight:bold"> 
+				{{ product.name }}
+			</div>
+		</div>
+	       {% endfor %}	
+	</div>
+	
+	<div style="border:solid 1px blue; height:18px">nav/ items per page</div>
 {# Henry is at it again @ Home #}
+
+{% endblock %}
+
+
+
+{% block javascripts%}
+<script type="text/javascript" src="/bundles/admin/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/bundles/admin/js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="/bundles/admin/js/jquery/jquery.validate.js"></script>
+<script type="text/javascript" src="/bundles/admin/js/jquery/jquery-ui-1.8.5.custom.min.js"></script>
+<script type="text/javascript" src="/bundles/admin/js/formwizard/jquery.form.wizard.js"></script>
+<script type="text/javascript" src="/bundles/admin/js/formwizard/bbq.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function($){
+	$('.zoom').click(function(){
+		$(this).css({cursor: 'pointer'})
+		alert("Soon coming ... Zooming " + $(this).attr('zoom'))
+	});
+});
+</script>
+
 
 {% endblock %}

@@ -426,7 +426,9 @@ class Product
 	#remove uploaded file
 	unlink($this->getImage()->getPathName());
 
-	#var_dump($si);
+	$this->setImage($image_name);
+	#var_dump($this->getImage()->getPathName());
+	//var_dump($si);
 	#die(__FILE__.__LINE__);
 
     }
