@@ -5,3 +5,21 @@ services:
 #    system.example:
 #        class: %system.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+
+
+    #########
+    # MENUS #
+    #########
+    nourriture_system.menu_builder:
+        class: Nourriture\SystemBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory","@translator", "@security.context"]
+
+    nourriture_system.menu.main:
+        class: Knp\Menu\MenuItem # the service definition requires setting the class
+        factory_service: nourriture_system.menu_builder
+        factory_method: createMainMenu
+        arguments: ["@request"]
+        scope: request # needed as we have the request as a dependency here
+        tags:
+            - { name: knp_menu.menu, alias: system_main } # The alias is what is used to retrieve the menu
+
