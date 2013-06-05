@@ -32,5 +32,7 @@ class Library{
 		return json_encode($_address);
 	}
 	
-
+       public static function getFileExtension($str){
+	  return strtolower(substr(strrchr($str,'.'),1));
+       }
 }

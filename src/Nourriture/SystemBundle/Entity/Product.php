@@ -5,7 +5,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Nourriture\SystemBundle\Library\SimpleImage;
+use Nourriture\SystemBundle\Library\Library;
 /**
  * @ORM\Entity(repositoryClass="Nourriture\SystemBundle\Entity\Repository\ProductRepository")
  * @ORM\Table(name="products")
@@ -390,8 +391,40 @@ class Product
 	if(null===$this->getImage() || !is_object($this->getImage())) return;
 
 	//we resize and create thumbs here
-	//var_dump($this->getImage());
-	$this->getImage()->move($this->getUploadPath(),$this->getImage()->getClientOriginalName());
+	//var_dump($this->getImage()->getClientOriginalName());
+	//var_dump($this->getImage()->getExtension());
+
+$image_name =  $this->getSlug() . "." . Library::getFileExtension($this->getImage()->getClientOriginalName());
+#var_dump($image_name);
+#die(__FILE__.__LINE__);
+
+#var_dump(file_exists($this->getImage()->getPathName()));
+	#Main
+	$si = SimpleImage::getInstance()->setUploadedImage($this->getImage())->load($this->getImage()->getPathName());
+
+	//create main
+        $si->resize(500, 500);
+	$si->save($this->getUploadPath() . "/" . $image_name);
+	#save main image	
+	#$this->getImage()->move($this->getUploadPath(),$this->getImage()->getClientOriginalName());
+
+var_dump(file_exists($this->getImage()->getPathName()));
+
+#print_r($this->getImage()->getPathName());
+#die(__FILE__.__LINE__);
+
+
+	#Thumbnail
+	$si = SimpleImage::getInstance()->setUploadedImage($this->getImage())->load($this->getImage()->getPathName());
+	#$this->getImage()->move($this->getUploadPath() . "/thumbs/",$this->getImage()->getClientOriginalName());
+	$si->resize(100, 100)->save($this->getUploadPath() . "/thumbs/" . $image_name);
+
+	#remove uploaded file
+	unlink($this->getImage()->getPathName());
+
+	var_dump($si);
+	die(__FILE__.__LINE__);
+
     }
     public function setUploadPath($path){
 	$this->uploadPath = $path;

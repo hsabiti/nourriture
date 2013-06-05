@@ -1,0 +1,5 @@
+Nourriture\SystemBundle\Entity\Product:
+       properties:
+         image:
+           - Image:
+              mimeTypes: [image/gif,image/png,image/jpg,image/jpeg]         
