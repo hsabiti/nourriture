@@ -26,6 +26,7 @@ class  ProductType extends AbstractType{
 			->add('available_on', 'datetime', array('label' => 'products.available_on','attr'=>array('class'=>'available_on')))
 			->add('updated', null, array('label'=>false,'attr'=>array('class'=>'hidden'),'data'=>new \DateTime(date("Y-m-d H:i:s",time()))))
 			->add('netweight', 'choice', array('label'=>'products.netweight','choices'=>$this->container->getParameter('nourriture_weights'),'attr'=>array('class'=>'netweight')))
+			->add('price', 'text', array('label' => 'products.price','attr' => array('class'=>'price')))
 			->add('image', 'file', array('data_class'=>null,'label'=>'products.image','required'=>false));
 			//->add('state', 'text', array('required'=>false,'attr'=>array('class'=>'state')))
 			//->add('country', 'country', array('preferred_choices'=>$this->container->getParameter('nourriture_countries'),'attr'=>array('class'=>'country')));

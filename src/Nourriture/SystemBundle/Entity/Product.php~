@@ -5,7 +5,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Nourriture\SystemBundle\Library\SimpleImage;
+use Nourriture\SystemBundle\Library\Library;
 /**
  * @ORM\Entity(repositoryClass="Nourriture\SystemBundle\Entity\Repository\ProductRepository")
  * @ORM\Table(name="products")
@@ -93,6 +94,22 @@ class Product
 	
 
 	protected $enabled;
+
+	/**
+	 * @var float
+	 * @ORM\Column(type="float", length=5, nullable=false)
+	 */
+	
+
+	protected $price;
+
+
+
+
+	protected $uploadPath;
+	protected $main_dimension;
+	protected $thumb_dimension;
+	
 
 
     /**
@@ -356,5 +373,91 @@ class Product
     public function getEnabled()
     {
         return $this->enabled;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Product
+     */
+    public function setImage($image)
+    {
+       
+	if(null !== $image)
+	 $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+    public function upload(){
+	if(null===$this->getImage() || !is_object($this->getImage())) return;
+
+	$image_name =  $this->getSlug() . "." . Library::getFileExtension($this->getImage()->getClientOriginalName());
+
+	#Main
+	$si = SimpleImage::getInstance()->setUploadedImage($this->getImage())->load($this->getImage()->getPathName());
+	$original_info = $si->get_original_info();
+
+	//trasverse
+	if($original_info['width'] >= $original_info['height']){
+		$si->fit_to_width($this->getMainDimension());
+	}else{ //longitudinal
+		$si->fit_to_height($this->getMainDimension());
+	}
+	//create Main
+        #$si->resize(500, 500);
+	$si->save($this->getUploadPath() . "/" . $image_name);
+
+
+	//create Thumbnail
+	$si = SimpleImage::getInstance()->setUploadedImage($this->getImage())->load($this->getImage()->getPathName());
+	$original_info = $si->get_original_info();
+	
+	//trasverse
+	if($original_info['width'] >= $original_info['height']){
+		$si->fit_to_width($this->getThumbDimension());
+	}else{ //longitudinal
+		$si->fit_to_height($this->getThumbDimension());
+	}
+	#$si->resize(100, 100);
+	
+	$si->save($this->getUploadPath() . "/thumbs/" . $image_name);
+
+	#remove uploaded file
+	unlink($this->getImage()->getPathName());
+
+	$this->setImage($image_name);
+	#var_dump($this->getImage()->getPathName());
+	//var_dump($si);
+	#die(__FILE__.__LINE__);
+
+    }
+    public function setUploadPath($path){
+	$this->uploadPath = $path;
+    }
+    public function getUploadPath(){
+	return $this->uploadPath;
+    }
+    public function setMainDimension($size){
+	$this->main_dimension = $size;
+    }
+    public function getMainDimension(){
+	return $this->main_dimension;
+    }
+    public function setThumbDimension($size){
+	$this->thumb_dimension = $size;
+    }
+    public function getThumbDimension(){
+	return $this->thumb_dimension;
     }
 }

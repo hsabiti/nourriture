@@ -95,6 +95,16 @@ class Product
 
 	protected $enabled;
 
+	/**
+	 * @var float
+	 * @ORM\Column(type="float", length=5, nullable=false)
+	 */
+	
+
+	protected $price;
+
+
+
 
 	protected $uploadPath;
 	protected $main_dimension;
@@ -449,5 +459,28 @@ class Product
     }
     public function getThumbDimension(){
 	return $this->thumb_dimension;
+    }
+
+    /**
+     * Set price
+     *
+     * @param float $price
+     * @return Product
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return float 
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }
