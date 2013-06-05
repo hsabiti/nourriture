@@ -97,7 +97,9 @@ class Product
 
 
 	protected $uploadPath;
-
+	protected $main_dimension;
+	protected $thumb_dimension;
+	
 
 
     /**
@@ -390,40 +392,42 @@ class Product
     public function upload(){
 	if(null===$this->getImage() || !is_object($this->getImage())) return;
 
-	//we resize and create thumbs here
-	//var_dump($this->getImage()->getClientOriginalName());
-	//var_dump($this->getImage()->getExtension());
-
 	$image_name =  $this->getSlug() . "." . Library::getFileExtension($this->getImage()->getClientOriginalName());
-	#var_dump($image_name);
-	#die(__FILE__.__LINE__);
 
-	#var_dump(file_exists($this->getImage()->getPathName()));
 	#Main
 	$si = SimpleImage::getInstance()->setUploadedImage($this->getImage())->load($this->getImage()->getPathName());
+	$original_info = $si->get_original_info();
 
-	//create main
-        $si->resize(500, 500);
+	//trasverse
+	if($original_info['width'] >= $original_info['height']){
+		$si->fit_to_width($this->getMainDimension());
+	}else{ //longitudinal
+		$si->fit_to_height($this->getMainDimension());
+	}
+	//create Main
+        #$si->resize(500, 500);
 	$si->save($this->getUploadPath() . "/" . $image_name);
-	#save main image	
-	#$this->getImage()->move($this->getUploadPath(),$this->getImage()->getClientOriginalName());
-
-	var_dump(file_exists($this->getImage()->getPathName()));
-
-	#print_r($this->getImage()->getPathName());
-	#die(__FILE__.__LINE__);
 
 
-	#Thumbnail
+	//create Thumbnail
 	$si = SimpleImage::getInstance()->setUploadedImage($this->getImage())->load($this->getImage()->getPathName());
-	#$this->getImage()->move($this->getUploadPath() . "/thumbs/",$this->getImage()->getClientOriginalName());
-	$si->resize(100, 100)->save($this->getUploadPath() . "/thumbs/" . $image_name);
+	$original_info = $si->get_original_info();
+	
+	//trasverse
+	if($original_info['width'] >= $original_info['height']){
+		$si->fit_to_width($this->getThumbDimension());
+	}else{ //longitudinal
+		$si->fit_to_height($this->getThumbDimension());
+	}
+	#$si->resize(100, 100);
+	
+	$si->save($this->getUploadPath() . "/thumbs/" . $image_name);
 
 	#remove uploaded file
 	unlink($this->getImage()->getPathName());
 
-	var_dump($si);
-	die(__FILE__.__LINE__);
+	#var_dump($si);
+	#die(__FILE__.__LINE__);
 
     }
     public function setUploadPath($path){
@@ -432,5 +436,16 @@ class Product
     public function getUploadPath(){
 	return $this->uploadPath;
     }
-    
+    public function setMainDimension($size){
+	$this->main_dimension = $size;
+    }
+    public function getMainDimension(){
+	return $this->main_dimension;
+    }
+    public function setThumbDimension($size){
+	$this->thumb_dimension = $size;
+    }
+    public function getThumbDimension(){
+	return $this->thumb_dimension;
+    }
 }

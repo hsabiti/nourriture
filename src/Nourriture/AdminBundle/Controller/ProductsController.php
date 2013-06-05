@@ -76,6 +76,8 @@ class ProductsController extends Controller
 			if($form->isValid()){
 				//handle imageupload
 				$product->setUploadPath($this->get('kernel')->getRootDir() . "/../web" . $this->container->getParameter('nourriture_assets_path'));
+				$product->setMainDimension($this->container->getParameter('nourriture_main_image_dimensions'));
+				$product->setThumbDimension($this->container->getParameter('nourriture_small_image_dimensions'));
 				
 				$product->upload();
 				

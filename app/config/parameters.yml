@@ -28,3 +28,7 @@ parameters:
    
     #thumbs will also be in here
     nourriture_assets_path: /assets/images/products
+
+    #product image main dimension, this needs to be the wider side only, the image shrinks to fit this either longitudinal or traverse
+    nourriture_main_image_dimensions: 500
+    nourriture_small_image_dimensions: 150
