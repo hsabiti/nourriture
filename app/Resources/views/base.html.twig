@@ -3,11 +3,30 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+	{% block stylesheets %}
+                 <link href="{{ asset('/bundles/home/css/bootstrap/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
+                <link href="{{ asset('/bundles/home/css/main.css') }}" type="text/css" rel="stylesheet" />
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+	<div class="home_container" style="border: solid 1px red">
+		
+		<div class="top_logo" style="width: 80%; background-color:#ffffff;height:60px;border: dashed 1px #eee;margin-left:auto;margin-right:auto">
+			top logo and motto etc
+		</div>	
+
+		<div class="top_nav" style="width: 80%; background-color:#f2f2f2;height:33px;border: solid 1px #ddd;margin-left:auto;margin-right:auto">
+			wawa
+		</div>
+		
+		<div class="lower_body_container" style="border:solid 0px blue;width:80%;margin-left:auto;margin-right:auto;height:600px; text-align:top;margin-top:20px">
+			<div class="left_nav" style="float: left;min-width:185px;background-color:#f2f2f2;height:100%">Left Nav</div>
+			<div class="main_body" style="border:solid 1px #ddd;margin-left:8px;height:100%;min-width:500px;width:80.999%;float:left">
+        			{% block body %}{% endblock %}
+			</div>
+		</div>	
+	</div>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
