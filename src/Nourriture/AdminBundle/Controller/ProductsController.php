@@ -94,5 +94,12 @@ class ProductsController extends Controller
 		return $this->render('AdminBundle:Products:edit.html.twig', array('form'=>$form->createView()));
 	
 	}
+
+ 	public function deleteAction(){
+
+        	return $this->render('AdminBundle:Users:delete.html.twig');
+
+       }
+
 	
 }

@@ -1,0 +1,38 @@
+{% extends '::adminhomebase.html.twig' %}
+
+
+{% block admin_content %}
+
+<div class="dashboard_container">
+
+	<div class="dashboard_left">
+	
+
+
+    <div class="fieldset">	
+		<div class="legend">{% trans %} users.delete_profile {% endtrans %}</div>
+
+		<p> Disallowed functionality for now, You can only modify an existing product</p>
+
+		</div>
+
+
+
+
+
+	</div>
+
+	<div class="dashboard_right">
+		<div class="fieldset">
+			<div class="legend">Quick Links</div>
+			<ul class="large">
+			{{ knp_menu_render('admin_admins', {'template':'AdminBundle:Menu:knp_menu.html.twig'}) }}
+
+			</ul>
+		</div>
+	</div>
+
+</div>
+
+
+{% endblock %}

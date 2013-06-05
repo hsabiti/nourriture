@@ -25,7 +25,7 @@ class MenuBuilder extends ContainerAware
 
 	$t = $this->translator;
 
-
+#var_dump($request->getRequestUri());
 #die(__FILE__.__LINE__);
 #print $t->getLocale();
 #die($t->trans('dashboard.dashboard'));
@@ -48,6 +48,7 @@ class MenuBuilder extends ContainerAware
         $menu->addChild('products', array('label'=>$t->trans('dashboard.products'),'route' => 'admin_products_list'));
 		$menu['products']->addChild('list', array('label'=>$t->trans('dashboard.list_products'), 'route'=>'admin_products_list', 'attributes'=>array('class'=>'placeholder')));
 		$menu['products']->addChild('add', array('label'=>$t->trans('dashboard.add_product'),'route'=>'admin_products_add', 'attributes'=>array('class'=>'pissoff')));
+		$menu['products']->addChild('edit', array('label'=>$t->trans('products.edit_product'), 'route'=>'admin_products_edit','routeParameters'=>array('id'=>1), 'attributes'=>array('class'=>'placeholder')));
 
 	$menu->addChild('users', array('label'=>$t->trans('dashboard.users'),'route' => 'admin_users_list'));
 		$menu['users']->addChild('users', array('label'=>$t->trans('dashboard.list_users'), 'route'=>'admin_users_list', 'attributes'=>array('class'=>'users')));

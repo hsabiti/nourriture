@@ -12,4 +12,37 @@ use Doctrine\ORM\EntityRepository;
  */
 class ProductRepository extends EntityRepository
 {
+	public function findByFilter($array){
+	
+		if(count($array)==0) return null;
+	
+		#pagination
+		#$q->setFirstResult(25);
+		#$q->setMaxResults(25);
+	
+	
+	
+		$q =  $this->createQueryBuilder('p')
+		->select('p');
+	
+		$n = 1;
+	
+		foreach($array as $key=>$val){
+			if($n==1){
+				$q->Where("p.$key LIKE '%$val%'");
+			}else{
+				$q->orWhere("p.$key LIKE '%$val%'");
+			}
+	
+			$n++;
+	
+		}
+	
+		$q ->orderBy('p.name','ASC')
+		->groupBy('p');
+	
+		return  $q->getQuery()->getResult();
+	
+	
+	}
 }
