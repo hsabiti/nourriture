@@ -1,0 +1,7 @@
+parameters:
+#    nourriture_back_end.example.class: Nourriture\BackEndBundle\Example
+
+services:
+#    nourriture_back_end.example:
+#        class: %nourriture_back_end.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
