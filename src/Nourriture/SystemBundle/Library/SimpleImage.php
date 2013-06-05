@@ -9,11 +9,11 @@ class SimpleImage {
 	private $image, $filename, $original_info, $width, $height;
 	private $uploadedImage;
 
-	function __construct($filename = null) {
+	private function __construct($filename = null) {
 		if( $filename ) $this->load($filename);
 	}
 
-	function __destruct() {
+	public function __destruct() {
 		if( $this->image ) imagedestroy($this->image);
 	}
 
@@ -89,8 +89,6 @@ class SimpleImage {
 	// The resulting format will be determined by the file extension.
 	//
 	public function save($filename = null, $quality = null) {
-#var_dump($filename);
-#die(__FILE__.__LINE__);
 		if( !$filename ) $filename = $this->filename;
 
 		// Determine format via file extension (fall back to original format)
