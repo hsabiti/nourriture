@@ -394,11 +394,11 @@ class Product
 	//var_dump($this->getImage()->getClientOriginalName());
 	//var_dump($this->getImage()->getExtension());
 
-$image_name =  $this->getSlug() . "." . Library::getFileExtension($this->getImage()->getClientOriginalName());
-#var_dump($image_name);
-#die(__FILE__.__LINE__);
+	$image_name =  $this->getSlug() . "." . Library::getFileExtension($this->getImage()->getClientOriginalName());
+	#var_dump($image_name);
+	#die(__FILE__.__LINE__);
 
-#var_dump(file_exists($this->getImage()->getPathName()));
+	#var_dump(file_exists($this->getImage()->getPathName()));
 	#Main
 	$si = SimpleImage::getInstance()->setUploadedImage($this->getImage())->load($this->getImage()->getPathName());
 
@@ -408,10 +408,10 @@ $image_name =  $this->getSlug() . "." . Library::getFileExtension($this->getImag
 	#save main image	
 	#$this->getImage()->move($this->getUploadPath(),$this->getImage()->getClientOriginalName());
 
-var_dump(file_exists($this->getImage()->getPathName()));
+	var_dump(file_exists($this->getImage()->getPathName()));
 
-#print_r($this->getImage()->getPathName());
-#die(__FILE__.__LINE__);
+	#print_r($this->getImage()->getPathName());
+	#die(__FILE__.__LINE__);
 
 
 	#Thumbnail
