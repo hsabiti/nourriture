@@ -26,10 +26,12 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
 	    new FOS\UserBundle\FOSUserBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new Nourriture\HomeBundle\HomeBundle(),
+            #new Nourriture\HomeBundle\HomeBundle(),
             new Nourriture\UserBundle\UserBundle(),
             new Nourriture\AdminBundle\AdminBundle(),
             new Nourriture\SystemBundle\SystemBundle(),
+            new Nourriture\FrontEndBundle\FrontEndBundle(),
+            new Nourriture\BackEndBundle\BackEndBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

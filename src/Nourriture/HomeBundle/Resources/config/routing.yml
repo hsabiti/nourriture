@@ -2,3 +2,6 @@ home_homepage:
     pattern:  /home
     defaults: { _controller: HomeBundle:Home:index }
 
+home_products_list:
+    pattern:  /products/list
+    defaults: { _controller: HomeBundle:Products:list }

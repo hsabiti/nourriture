@@ -40,8 +40,19 @@ fos_user_change_password:
 #    resource: "@UserBundle/Resources/config/routing.yml"
 #    prefix:   /
 
-home:
-    resource: "@HomeBundle/Resources/config/routing.yml"
+#home:
+#    resource: "@HomeBundle/Resources/config/routing.yml"
+#    prefix:   /{_locale}
+#    requirements:
+#       _locale: %nourriture_locales%
+
+nourriture_back_end:
+    resource: "@BackEndBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}
+    requirements:
+       _locale: %nourriture_locales%
+nourriture_front_end:
+    resource: "@FrontEndBundle/Resources/config/routing.yml"
     prefix:   /{_locale}
     requirements:
        _locale: %nourriture_locales%
