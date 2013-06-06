@@ -5,8 +5,9 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
 	{% block stylesheets %}
                  <link href="{{ asset('/bundles/home/css/bootstrap/css/bootstrap.css') }}" type="text/css" rel="stylesheet" />
-                <link href="{{ asset('/bundles/home/css/main.css') }}" type="text/css" rel="stylesheet" />
+                 <link href="{{ asset('/bundles/home/css/main.css') }}" type="text/css" rel="stylesheet" />
         {% endblock %}
+	{% block stylesheets_extra%}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>

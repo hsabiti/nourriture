@@ -18,17 +18,8 @@
 				<th >&nbsp;</th>
 				<th colspan="3">
 				
-				<form method="post" action="">
-					<table cellspacing="0" cellpadding="0" border="0" class="" style="margin-top:3px;">
-					<thead>
-					<tr><th>
-					<label style="display:inline;"><span style="position:relative;top:-3px">{%trans%}search{%endtrans%}:</span> 
-					<input value="{{filter}}" class="form" name="filter" id="filter"  style="display:inline;height:12px"></label>
-					<input type="submit" class="inline-button" value="Search" style="height:22px" >
-					</th></tr>
-					</thead>
-					</table>
-				</form>
+				{% include '::search_products_form.html.twig' %}
+
 				
 
 				</th>
