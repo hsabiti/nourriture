@@ -14,7 +14,7 @@ return array(
     'Symfony\\Bundle\\AsseticBundle' => array($vendorDir . '/symfony/assetic-bundle'),
     'Symfony\\' => array($vendorDir . '/symfony/symfony/src'),
     'Sylius\\Bundle\\ResourceBundle\\' => array($vendorDir . '/sylius/resource-bundle'),
-    'Sylius\\Bundle\\AssortmentBundle' => array($vendorDir . '/sylius/assortment-bundle'),
+    'Sylius\\Bundle\\CartBundle' => array($vendorDir . '/sylius/cart-bundle'),
     'Stof\\DoctrineExtensionsBundle' => array($vendorDir . '/stof/doctrine-extensions-bundle'),
     'Sensio\\Bundle\\GeneratorBundle' => array($vendorDir . '/sensio/generator-bundle'),
     'Sensio\\Bundle\\FrameworkExtraBundle' => array($vendorDir . '/sensio/framework-extra-bundle'),

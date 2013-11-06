@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4a8e147437beb92114d162582c6a2238",
+    "hash": "23263cc086e43f34f445a44d99b321ea",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2073,41 +2073,41 @@
             "time": "2013-04-11 10:22:09"
         },
         {
-            "name": "sylius/assortment-bundle",
-            "version": "dev-master",
-            "target-dir": "Sylius/Bundle/AssortmentBundle",
+            "name": "sylius/cart-bundle",
+            "version": "v0.3.0",
+            "target-dir": "Sylius/Bundle/CartBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Sylius/SyliusAssortmentBundle.git",
-                "reference": "f2508040c1654cd99fdf4f0a951eae56033cf81a"
+                "url": "https://github.com/Sylius/SyliusCartBundle.git",
+                "reference": "v0.3.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sylius/SyliusAssortmentBundle/zipball/f2508040c1654cd99fdf4f0a951eae56033cf81a",
-                "reference": "f2508040c1654cd99fdf4f0a951eae56033cf81a",
+                "url": "https://api.github.com/repos/Sylius/SyliusCartBundle/zipball/v0.3.0",
+                "reference": "v0.3.0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "stof/doctrine-extensions-bundle": "1.1.*",
                 "sylius/resource-bundle": "0.1.*",
-                "symfony/framework-bundle": ">=2.2,<2.3-dev"
+                "symfony/framework-bundle": ">=2.1,<3.0"
             },
             "require-dev": {
-                "doctrine/orm": ">=2.3,<3.0",
+                "phpspec/php-diff": "dev-master",
                 "phpspec/phpspec2": "dev-develop",
-                "symfony/form": ">=2.2,<3.0",
-                "symfony/validator": ">=2.2,<3.0"
+                "symfony/form": ">=2.1,<3.0",
+                "symfony/validator": ">=2.1,<3.0",
+                "twig/twig": ">=1.11.0,<2.0"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.1.x-dev"
+                    "dev-master": "0.3.x-dev"
                 }
             },
             "autoload": {
                 "psr-0": {
-                    "Sylius\\Bundle\\AssortmentBundle": ""
+                    "Sylius\\Bundle\\CartBundle": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2122,18 +2122,19 @@
                 },
                 {
                     "name": "Community contributions",
-                    "homepage": "https://github.com/Sylius/SyliusAssortmentBundle/contributors"
+                    "homepage": "https://github.com/Sylius/SyliusCartBundle/contributors"
                 }
             ],
-            "description": "Manage products, their variants, properties and options in your Symfony2 application.",
+            "description": "Cart feature for your next Symfony2 application.",
             "homepage": "http://sylius.org",
             "keywords": [
+                "cart",
+                "carts",
                 "ecommerce",
-                "product",
-                "products",
-                "shop"
+                "shop",
+                "sylius"
             ],
-            "time": "2013-05-07 11:55:44"
+            "time": "2013-03-09 02:32:34"
         },
         {
             "name": "sylius/resource-bundle",
@@ -2636,7 +2637,6 @@
         "friendsofsymfony/user-bundle": 20,
         "knplabs/knp-menu": 20,
         "knplabs/knp-menu-bundle": 20,
-        "sylius/assortment-bundle": 20,
         "white-october/pagerfanta-bundle": 20,
         "stof/doctrine-extensions-bundle": 20
     },

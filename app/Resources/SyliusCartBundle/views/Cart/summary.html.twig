@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<div class="cart_summary_information" style="border:solid 1px green;height:30px">
+	{% trans %}cart.information{% endtrans %}
+<div style="border:solid 1px red;width:400px;margin-left:20px;position:relative;top:-7px"> info </div>
+	
+</div>
+
+<div class="shopping_basket_title" style="font-weight:bold;font-size:15px">{%trans%}cart.your_cart {%endtrans%}</div>
+<div class="cart_items" style="border:solid 1px blue;min-height:30px">
+<table style="width:100%">
+
+	<tr style="background-color:yellow;height:22px">
+	  <th>{%trans%}product.information{%endtrans%} </th>
+	  <th>{%trans%}product.price{%endtrans%} </th>
+	  <th>{%trans%}product.quantity{%endtrans%} </th>
+	  <th>{%trans%}product.total{%endtrans%} </th>
+	  <th>{%trans%}product.remove{%endtrans%} </th>
+        </tr>
+
+	{% for item in cart.items %}
+	
+	<tr style="background-color:yellow;height:22px">
+	  <th>{{ item.product.name }} </th>
+	  <th>{{ item.product.price }} </th>
+	  <th>{{ item.quantity }} </th>
+	  <th>{{ (item.quantity * item.product.price ) }} </th>
+	  <th><a class="remove_product" href="{{ path('sylius_cart_item_remove', {'id': item.id}) }}"> {%trans%}product.remove{%endtrans%}</a> </th>
+        </tr>
+	
+	{% endfor %}
+
+</table>
+</div>
+
+
+hello henry your multilingual cart goes in here
+
+{% endblock %}

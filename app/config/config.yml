@@ -101,3 +101,12 @@ stof_doctrine_extensions:
         default:
             sluggable: true
             timestampable: true
+
+sylius_cart:
+    driver: doctrine/orm # Configure the doctrine orm driver used in documentation.
+    resolver: nourriture_system.cart_item_resolver # The id of our newly created service.
+    classes:
+        cart:
+            model: Nourriture\SystemBundle\Entity\Cart # Our cart entity.
+        item:
+            model: Nourriture\SystemBundle\Entity\CartItem # The item entity.

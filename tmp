@@ -1,0 +1,75 @@
+ 1277  ./app/console 
+ 1278  ./app/console doctrine:mapping:import
+ 1279  ./app/console doctrine:mapping:import UserBundle
+ 1289  ./app/console doctrine:mapping:import 
+ 1290  ./app/console doctrine:mapping:import UserBundle
+ 1295  ./app/console doctrine:mapping:import UserBundle
+ 1301  ./app/console doctrine:generate:entities UserBundle
+ 1306  ./app/console doctrine
+ 1307  ./app/console doctrine:schema:validate
+ 1315  ./app/console doctrine:mapping:import UserBundle annotation
+ 1320  ./app/console doctrine
+ 1321  ./app/console doctrine:generate:entities
+ 1322  ./app/console doctrine:generate:entities UserBundle
+ 1372  ./app/console doctrine
+ 1383  ./app/console doctrine:generate:entities UserBundle
+ 1386  ./app/console doctrine
+ 1387  ./app/console doctrine:mapping:info
+ 1392  ./app/console doctrine:generate:entities
+ 1393  ./app/console doctrine:generate:entities UserBundle
+ 1395  ./app/console doctrine:generate:entities UserBundle
+ 1397  ./app/console doctrine:mapping:info
+ 1398  ./app/console doctrine:generate:entities UserBundle
+ 1399  ./app/console doctrine:mapping:info
+ 1403  ./app/console doctrine:generate:entities UserBundle
+ 1406  ./app/console cache:clear
+ 1407  ./app/console doctrine:generate:entities UserBundle
+ 1408  ./app/console doc
+ 1415  ./app/console doctrine:generate:entities UserBundle
+ 1416  ./app/console doctrine:generate:entities UserBundle --with-repository
+ 1417  ./app/console doctrine:generate:entities --with-repository UserBundle 
+ 1418  ./app/console doctrine:generate:entity UserBundle
+ 1419  ./app/console doctrine:generate:entity --entity="Nourriture\UserBundle\PostcodeAddress" --with-repository
+ 1420  ./app/console doctrine:generate:entity --entity="Nourriture\UserBundle\Entity\PostcodeAddress" --with-repository
+ 1422  ./app/console doctrine:generate:entity UserBundle:PostcodeAddress --with-repository
+ 1423  ./app/console doctrine:generate:entity UserBundle:PostcodeAddress 
+ 1426  ./app/console doctrine:generate:entities UserBundle --with-repository
+ 1427  ./app/console doctrine:generate:entities --with-repository
+ 1428  ./app/console doctrine:generate:entities UserBundle
+ 1462  ./app/console doctrine:generate:entities
+ 1463  ./app/console doctrine:generate:entities UserBundle
+ 1470  ./app/console doctrine:generate:entities UserBundle
+ 1476  ./app/console doctrine:generate:entities UserBundle
+ 1478  ./app/console doctrine:generate:entities UserBundle
+ 1742  ./app/console 
+ 1743  ./app/console generate:bundle system
+ 1744  ./app/console generate:bundle --namespace="Nourriture" --bundle-name=system --format="yml"
+ 1750  ./app/console router:debug
+ 1752  ./app/console router:debug
+ 1876  ./app/console router:debug
+ 1879  ./app/console router:debug
+ 1881  ./app/console router:debug
+ 1883  ./app/console router:debug
+ 1893  ./app/console router:debug
+ 1921  ./app/console assets:publish
+ 1922  ./app/console 
+ 1923  ./app/console assets:install
+ 1927  ./app/console assets:install
+ 1929  ./app/console assets:install
+ 1931  ./app/console assets:install
+ 1933  ./app/console assets:install
+ 1935  ./app/console assets:install
+ 1937  ./app/console assets:install
+ 1940  ./app/console assets:install
+ 1942  ./app/console assets:install
+ 1944  ./app/console assets:install
+ 1946  ./app/console assets:install
+ 1965  ./app/console assets:install
+ 1968  ./app/console doctrine:generate:entities
+ 1969  ./app/console doctrine:generate:entities UserBundle
+ 1972  ./app/console 
+ 1973  ./app/console doctrine:schema:validate
+ 1974  ./app/console doctrine:schema:update --dump-sql
+ 1976  ./app/console doctrine:schema:update --dump-sql
+ 1977  ./app/console doctrine:schema:update --force
+ 2002  history |grep console > tmp

@@ -1,3 +1,16 @@
+sylius_cart:
+    resource: @SyliusCartBundle/Resources/config/routing.yml
+    prefix: /{_locale}/cart
+    requirements:
+       _locale: %nourriture_locales%
+    #prefix: /cart
+
+nourriture_front_endx:
+    resource: "@FrontEndBundle/Resources/config/routing.yml"
+    prefix:   /{_locale}
+    requirements:
+       _locale: %nourriture_locales%
+
 system:
     resource: "@SystemBundle/Resources/config/routing.yml"
     prefix:   /
