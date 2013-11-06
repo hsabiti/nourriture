@@ -44,7 +44,7 @@ class Product
 
         /**
 	 * @var interger
-	 * @ORM\Column(type="decimal", length=5, nullable=false)
+	 * @ORM\Column(type="decimal", length=5, nullable=false, precision=10, scale=2)
 	 */
 	protected $netweight;
 	
@@ -95,9 +95,9 @@ class Product
 
 	protected $enabled;
 
-	/**
-	 * @var float
-	 * @ORM\Column(type="float", length=5, nullable=false)
+       /**
+	 * @var integer
+	 * @ORM\Column(type="decimal", length=5, nullable=false, precision=10, scale=2)
 	 */
 	
 

@@ -42,7 +42,7 @@ class AdminsController extends Controller
    	$registration->setProfile($user->getProfile());
    	$registration->setAddress($user->getAddress());
    
-   	$form = $this->createForm(new RegistrationType(), $registration);
+   	$form = $this->createForm(new RegistrationType($this->container), $registration);
    
    	$request = $this->getRequest();
    

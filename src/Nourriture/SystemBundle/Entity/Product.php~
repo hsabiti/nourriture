@@ -44,7 +44,7 @@ class Product
 
         /**
 	 * @var interger
-	 * @ORM\Column(type="decimal", length=5, nullable=false)
+	 * @ORM\Column(type="decimal", length=5, nullable=false, precision=10, scale=2)
 	 */
 	protected $netweight;
 	
@@ -95,9 +95,9 @@ class Product
 
 	protected $enabled;
 
-	/**
-	 * @var float
-	 * @ORM\Column(type="float", length=5, nullable=false)
+       /**
+	 * @var integer
+	 * @ORM\Column(type="decimal", length=5, nullable=false, precision=10, scale=2)
 	 */
 	
 
@@ -459,5 +459,28 @@ class Product
     }
     public function getThumbDimension(){
 	return $this->thumb_dimension;
+    }
+
+    /**
+     * Set price
+     *
+     * @param float $price
+     * @return Product
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return float 
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }

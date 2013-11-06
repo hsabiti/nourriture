@@ -23,3 +23,10 @@ services:
         tags:
             - { name: knp_menu.menu, alias: system_main } # The alias is what is used to retrieve the menu
 
+
+    #########
+    # CART  #
+    #########
+    nourriture_system.cart_item_resolver:
+       class: Nourriture\SystemBundle\Cart\ItemResolver
+       arguments: ["@doctrine.orm.entity_manager"]
